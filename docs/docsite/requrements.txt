@@ -1,0 +1,9 @@
+#pip packages required to build docsite
+jinja2
+PyYAML
+rstcheck
+sphinx==2.1.2
+sphinx-notfound-page >= 0.6
+sphinx-intl
+resolvelib
+Pygments >= 2.4.0
