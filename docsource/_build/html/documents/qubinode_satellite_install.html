@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Satellite 6 Installation &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Satellite 6 Installation</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#one-shot-installation">(1) One shot installation</a></li>
+<li><a class="reference internal" href="#step-through-the-installation">(2) Step through the installation.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Satellite 6 Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/qubinode_satellite_install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="satellite-6-installation">
+<h1>Satellite 6 Installation<a class="headerlink" href="#satellite-6-installation" title="Permalink to this headline">¶</a></h1>
+<p>The qubinode-installer can install Satellite 6 and configure it. The
+installation deploys a Red Hat IdM VM. This is use to provide DNS
+services. Then it deploys a VM to function as the Satellite server.
+Finally, it configures Satellite server to that it’s ready for use.</p>
+<p>To proceed you need to get your Satellite server manifest and save as
+<code class="docutils literal notranslate"><span class="pre">${projectdir}/satellite-server-manifest.zip</span></code>. The project_dir is the
+location where you have downloaded the Qubinode project. This should be
+<code class="docutils literal notranslate"><span class="pre">/home/&lt;username&gt;/qubinode-installer</span></code>.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You have two options for launching the installation.</p>
+<div class="section" id="one-shot-installation">
+<h3>(1) One shot installation<a class="headerlink" href="#one-shot-installation" title="Permalink to this headline">¶</a></h3>
+<p>From the project folder run.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">install</span>
+</pre></div>
+</div>
+<p>Choose Options:</p>
+<ul class="simple">
+<li><ol class="arabic simple" start="2">
+<li><p>Display other options</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="4">
+<li><p>Satellite - Red Hat Satellite Server</p></li>
+</ol>
+</li>
+<li><p>Continue with the installation of Satellite? yes</p></li>
+</ul>
+</div>
+<div class="section" id="step-through-the-installation">
+<h3>(2) Step through the installation.<a class="headerlink" href="#step-through-the-installation" title="Permalink to this headline">¶</a></h3>
+<p>From the project folder run.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">install</span> <span class="o">-</span><span class="n">m</span> <span class="n">setup</span>       <span class="c1"># ensure varaibles and sudoers is setup</span>
+<span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">install</span> <span class="o">-</span><span class="n">m</span> <span class="n">rhsm</span>        <span class="c1"># ensure system is registered to RHSM</span>
+<span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">install</span> <span class="o">-</span><span class="n">m</span> <span class="n">ansible</span>     <span class="c1"># ensure ansible roles are downloaded</span>
+<span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">install</span> <span class="o">-</span><span class="n">m</span> <span class="n">host</span>        <span class="c1"># ensure the system is setup as a KVM host</span>
+<span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">install</span> <span class="o">-</span><span class="n">p</span> <span class="n">idm</span>         <span class="c1"># ensure the IdM server is deployed</span>
+<span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">install</span> <span class="o">-</span><span class="n">p</span> <span class="n">satellite</span>   <span class="c1"># deploy the satellite server</span>
+</pre></div>
+</div>
+<p>The completed installation will display a menu similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*******************************************************************************</span>
+ <span class="o">*</span>  <span class="n">The</span> <span class="n">Satellite</span> <span class="n">server</span> <span class="n">has</span> <span class="n">been</span> <span class="n">deployed</span> <span class="k">with</span> <span class="n">login</span> <span class="n">details</span> <span class="n">below</span><span class="o">.</span>      <span class="o">*</span>
+
+      <span class="n">Web</span> <span class="n">Url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">qbn</span><span class="o">-</span><span class="n">sat01</span><span class="o">.</span><span class="n">lunchnet</span><span class="o">.</span><span class="n">example</span>
+      <span class="n">Username</span><span class="p">:</span> <span class="n">admin</span>
+      <span class="n">Password</span><span class="p">:</span> <span class="n">the</span> <span class="n">vault</span> <span class="n">variable</span> <span class="o">*</span><span class="n">admin_user_password</span><span class="o">*</span>
+
+      <span class="n">Run</span><span class="p">:</span> <span class="n">ansible</span><span class="o">-</span><span class="n">vault</span> <span class="n">edit</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">qubinode</span><span class="o">-</span><span class="n">installer</span><span class="o">/</span><span class="n">playbooks</span><span class="o">/</span><span class="nb">vars</span><span class="o">/</span><span class="n">vault</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

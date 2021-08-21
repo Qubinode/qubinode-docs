@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OpenShift Workloads &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">OpenShift Workloads</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>OpenShift Workloads</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/openshift4_workloads.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="openshift-workloads">
+<h1>OpenShift Workloads<a class="headerlink" href="#openshift-workloads" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="jig.md">Jig - Workshop Service Worker</a> &gt; Jig is the back-end service
+that allows workshop proctors to easily set up and provide seamless
+workshop student experiences. A Workshop Proctor will log into Jig and
+create an Event. That Event has all the needed student workshop details
+such as what Domain, Workshop ID, and Student User ID Numbers are
+auto-assigned and monitored as they progress through the workshops.Those
+3 details (Domain, Workshop ID, pointing and numbering workshop
+participants with a User ID usually would take a substantial amount of
+time and cause a lot of confusion. Monitoring student activity is based
+on the front-end workshop curriculum, like that found at
+<a class="reference external" href="https://redhatgov.io">https://redhatgov.io</a> - no special work is required on the curriculum
+authors or the workshop architects.</p>
+<p><a class="reference external" href="rh-workshops.md">Red Hat Workshops, but make it spicy</a> &gt; Red Hat
+Workshops are a great open source collection of educational materials
+that cover various topics relating to Red Hat’s product portfolio, from
+Automation with Ansible to Containers and Kubernetes with OpenShift.
+There is a set of resources to deploy the workshop environments,
+currently supported by IBM Cloud.</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="home-assistant.md">Home Assistant.io on OpenShift</a></div>
+<div class="line">&gt; Open source home automation that puts local control and privacy
+first. Powered by a worldwide community of tinkerers and DIY
+enthusiasts.</div>
+</div>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/tosin2013/quarkus-cafe-demo-role">Quarkus Cafe
+Role</a></div>
+<div class="line">&gt; The Quarkus Cafe Role will deploy an event-driven demo application
+built with Quarkus, AMQ Streams (Kafka), and MongoDB. The application
+deploys to OpenShift (Kubernetes.) The source code for the
+<a class="reference external" href="https://github.com/jeremyrdavis/quarkus-cafe-demo">quarkus-cafe-demo</a>
+application can be found
+<a class="reference external" href="https://github.com/jeremyrdavis/quarkus-cafe-demo">here</a>.</div>
+</div>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://docs.jboss.org/kogito/release/latest/html_single/#chap-kogito-deploying-on-openshift">Kogito business
+automation</a></div>
+<div class="line">&gt; Kogito is a cloud-native business automation technology for building
+cloud-ready business applications. The name Kogito derives from the
+Latin “Cogito”, as in “Cogito, ergo sum” (“I think, therefore I am”),
+and is pronounced [ˈkoː.d͡ʒi.to] (KO-jee-to). The letter K has
+reference to Kubernetes, the base for OpenShift as the target cloud
+platform for Kogito, and to the Knowledge Is Everything (KIE) open
+source business automation project from which Kogito originates.</div>
+</div>
+<p><a class="reference external" href="https://tosin2013.github.io/openshift-demos/">A Collection of OpenShift
+demos</a></p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/redhat-cop/container-pipelines">Container
+Pipelines</a></div>
+<div class="line">&gt; Let’s get the ball rolling on some Container-driven CI &amp; CD</div>
+</div>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/openshift/pipelines-tutorial">OpenShift Pipelines
+Tutorial</a></div>
+<div class="line">&gt; OpenShift Pipelines is a cloud-native, continuous integration and
+delivery (CI/CD) solution for building pipelines using
+<a class="reference external" href="https://tekton.dev">Tekton</a>. Tekton is a flexible,
+Kubernetes-native, open-source CI/CD framework that enables automating
+deployments across multiple platforms (Kubernetes, serverless, VMs,
+etc) by abstracting away the underlying details.</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

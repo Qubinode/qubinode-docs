@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Troubleshooting an monitoring for Qubinode &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Troubleshooting an monitoring for Qubinode</a><ul>
+<li><a class="reference internal" href="#openshift-node-info-on-qubinode">OpenShift node info on Qubinode</a></li>
+<li><a class="reference internal" href="#from-the-cli">From the CLI</a></li>
+<li><a class="reference internal" href="#from-cockpit">From Cockpit</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Troubleshooting an monitoring for Qubinode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/troubleshooting-monitoring.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="troubleshooting-an-monitoring-for-qubinode">
+<h1>Troubleshooting an monitoring for Qubinode<a class="headerlink" href="#troubleshooting-an-monitoring-for-qubinode" title="Permalink to this headline">¶</a></h1>
+<p>WIP</p>
+<p>While OpenShift is deploying you can open a new terminal sshh into your
+box and run the following.</p>
+<p>When Bootstrap is starting</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># OpenShift
+tail -f /home/${USER}/qubinode-installer/ocp4/bootstrap-complete.log
+
+# OKD
+tail -f /home/${USER}/qubinode-installer/okd/bootstrap-complete.log
+</pre></div>
+</div>
+<p>Waiting for Installation to Complete</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># OpenShift
+tail -f /home/${USER}/qubinode-installer/ocp4/.openshift_install.log
+
+# OKD
+tail -f /home/${USER}/qubinode-installer/okd4/.openshift_install.log
+</pre></div>
+</div>
+<p><strong>To exit out of tail hit CTRL+C</strong></p>
+<p>To view Logs and status on Red Hat Cores OS bootstrap node</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh core@192.168.50.2
+</pre></div>
+</div>
+<p>To view logs and status on Fedora Cores OS bootstrap node</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh core@192.168.50.2
+$ journalctl -b -f -u release-image.service -u bootkube.service
+</pre></div>
+</div>
+<div class="section" id="openshift-node-info-on-qubinode">
+<h2>OpenShift node info on Qubinode<a class="headerlink" href="#openshift-node-info-on-qubinode" title="Permalink to this headline">¶</a></h2>
+<p>list vms</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo virsh list
+ Id    Name                           State
+----------------------------------------------------
+ 11    qbn-dns01                      running
+ 34    ctrlplane-0                    running
+ 35    ctrlplane-1                    running
+ 36    ctrlplane-2                    running
+ 37    compute-0                      running
+ 38    compute-1                      running
+ 39    compute-2                      running
+</pre></div>
+</div>
+</div>
+<div class="section" id="from-the-cli">
+<h2>From the CLI<a class="headerlink" href="#from-the-cli" title="Permalink to this headline">¶</a></h2>
+<p><em>virt-top</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># virt-top --help</span>
+<span class="n">virt</span><span class="o">-</span><span class="n">top</span> <span class="p">:</span> <span class="n">a</span> <span class="s1">&#39;top&#39;</span><span class="o">-</span><span class="n">like</span> <span class="n">utility</span> <span class="k">for</span> <span class="n">virtualization</span>
+
+<span class="n">SUMMARY</span>
+  <span class="n">virt</span><span class="o">-</span><span class="n">top</span> <span class="p">[</span><span class="o">-</span><span class="n">options</span><span class="p">]</span>
+
+<span class="n">OPTIONS</span>
+  <span class="o">-</span><span class="mi">1</span>                <span class="n">Start</span> <span class="n">by</span> <span class="n">displaying</span> <span class="n">pCPUs</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="n">tasks</span><span class="p">)</span>
+  <span class="o">-</span><span class="mi">2</span>                <span class="n">Start</span> <span class="n">by</span> <span class="n">displaying</span> <span class="n">network</span> <span class="n">interfaces</span>
+  <span class="o">-</span><span class="mi">3</span>                <span class="n">Start</span> <span class="n">by</span> <span class="n">displaying</span> <span class="n">block</span> <span class="n">devices</span>
+  <span class="o">-</span><span class="n">b</span>                <span class="n">Batch</span> <span class="n">mode</span>
+  <span class="o">-</span><span class="n">c</span> <span class="n">uri</span>            <span class="n">Connect</span> <span class="n">to</span> <span class="n">libvirt</span> <span class="n">URI</span>
+  <span class="o">--</span><span class="n">connect</span> <span class="n">uri</span>     <span class="n">Connect</span> <span class="n">to</span> <span class="n">libvirt</span> <span class="n">URI</span>
+  <span class="o">--</span><span class="n">csv</span> <span class="n">file</span>        <span class="n">Log</span> <span class="n">statistics</span> <span class="n">to</span> <span class="n">CSV</span> <span class="n">file</span>
+  <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">csv</span><span class="o">-</span><span class="n">cpu</span>      <span class="n">Disable</span> <span class="n">CPU</span> <span class="n">stats</span> <span class="ow">in</span> <span class="n">CSV</span>
+  <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">csv</span><span class="o">-</span><span class="n">mem</span>      <span class="n">Disable</span> <span class="n">memory</span> <span class="n">stats</span> <span class="ow">in</span> <span class="n">CSV</span>
+  <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">csv</span><span class="o">-</span><span class="n">block</span>    <span class="n">Disable</span> <span class="n">block</span> <span class="n">device</span> <span class="n">stats</span> <span class="ow">in</span> <span class="n">CSV</span>
+  <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">csv</span><span class="o">-</span><span class="n">net</span>      <span class="n">Disable</span> <span class="n">net</span> <span class="n">stats</span> <span class="ow">in</span> <span class="n">CSV</span>
+  <span class="o">-</span><span class="n">d</span> <span class="n">delay</span>          <span class="n">Delay</span> <span class="n">time</span> <span class="n">interval</span> <span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+  <span class="o">--</span><span class="n">debug</span> <span class="n">file</span>      <span class="n">Send</span> <span class="n">debug</span> <span class="n">messages</span> <span class="n">to</span> <span class="n">file</span>
+  <span class="o">--</span><span class="n">end</span><span class="o">-</span><span class="n">time</span> <span class="n">time</span>   <span class="n">Exit</span> <span class="n">at</span> <span class="n">given</span> <span class="n">time</span>
+  <span class="o">--</span><span class="n">hist</span><span class="o">-</span><span class="n">cpu</span> <span class="n">secs</span>   <span class="n">Historical</span> <span class="n">CPU</span> <span class="n">delay</span>
+  <span class="o">--</span><span class="n">init</span><span class="o">-</span><span class="n">file</span> <span class="n">file</span>  <span class="n">Set</span> <span class="n">name</span> <span class="n">of</span> <span class="n">init</span> <span class="n">file</span>
+  <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">init</span><span class="o">-</span><span class="n">file</span>    <span class="n">Do</span> <span class="ow">not</span> <span class="n">read</span> <span class="n">init</span> <span class="n">file</span>
+  <span class="o">-</span><span class="n">n</span> <span class="n">iterations</span>     <span class="n">Number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="n">to</span> <span class="n">run</span>
+  <span class="o">-</span><span class="n">o</span> <span class="n">sort</span>           <span class="n">Set</span> <span class="n">sort</span> <span class="n">order</span> <span class="p">(</span><span class="n">cpu</span><span class="o">|</span><span class="n">mem</span><span class="o">|</span><span class="n">time</span><span class="o">|</span><span class="nb">id</span><span class="o">|</span><span class="n">name</span><span class="o">|</span><span class="n">netrx</span><span class="o">|</span><span class="n">nettx</span><span class="o">|</span><span class="n">blockrdrq</span><span class="o">|</span><span class="n">blockwrrq</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">s</span>                <span class="n">Secure</span> <span class="p">(</span><span class="s2">&quot;kiosk&quot;</span><span class="p">)</span> <span class="n">mode</span>
+  <span class="o">--</span><span class="n">script</span>          <span class="n">Run</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">script</span> <span class="p">(</span><span class="n">no</span> <span class="n">user</span> <span class="n">interface</span><span class="p">)</span>
+  <span class="o">--</span><span class="n">stream</span>          <span class="n">dump</span> <span class="n">output</span> <span class="n">to</span> <span class="n">stdout</span> <span class="p">(</span><span class="n">no</span> <span class="n">userinterface</span><span class="p">)</span>
+  <span class="o">--</span><span class="n">block</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="nb">bytes</span>  <span class="n">show</span> <span class="n">block</span> <span class="n">device</span> <span class="n">load</span> <span class="ow">in</span> <span class="nb">bytes</span> <span class="n">rather</span> <span class="n">than</span> <span class="n">reqs</span>
+  <span class="o">--</span><span class="n">version</span>         <span class="n">Display</span> <span class="n">version</span> <span class="n">number</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">-</span><span class="n">help</span>             <span class="n">Display</span> <span class="n">this</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">options</span>
+  <span class="o">--</span><span class="n">help</span>            <span class="n">Display</span> <span class="n">this</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">options</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://people.redhat.com/rjones/virt-top/virt-top.txt">virt-top-&gt; more
+info</a></p>
+<p>.KVM logs location * as ${USER}istrator * cd /var/log/libvirt/qemu *
+tail one of the following based of vm name</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ls -lath qbn-*</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------.</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span>  <span class="mi">29</span><span class="n">K</span> <span class="n">Aug</span> <span class="mi">17</span> <span class="mi">10</span><span class="p">:</span><span class="mi">10</span> <span class="n">qbn</span><span class="o">-</span><span class="n">dns01</span><span class="o">.</span><span class="n">log</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------.</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span>  <span class="mi">29</span><span class="n">K</span> <span class="n">Aug</span> <span class="mi">17</span> <span class="mi">10</span><span class="p">:</span><span class="mi">08</span> <span class="n">qbn</span><span class="o">-</span><span class="n">lb01</span><span class="o">.</span><span class="n">log</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------.</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span>  <span class="mi">49</span><span class="n">K</span> <span class="n">Aug</span> <span class="mi">17</span> <span class="mi">10</span><span class="p">:</span><span class="mi">07</span> <span class="n">qbn</span><span class="o">-</span><span class="n">infra02</span><span class="o">.</span><span class="n">log</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------.</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span>  <span class="mi">54</span><span class="n">K</span> <span class="n">Aug</span> <span class="mi">17</span> <span class="mi">10</span><span class="p">:</span><span class="mi">05</span> <span class="n">qbn</span><span class="o">-</span><span class="n">infra01</span><span class="o">.</span><span class="n">log</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------.</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span>  <span class="mi">44</span><span class="n">K</span> <span class="n">Aug</span> <span class="mi">17</span> <span class="mi">10</span><span class="p">:</span><span class="mi">04</span> <span class="n">qbn</span><span class="o">-</span><span class="n">node02</span><span class="o">.</span><span class="n">log</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------.</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span>  <span class="mi">50</span><span class="n">K</span> <span class="n">Aug</span> <span class="mi">17</span> <span class="mi">10</span><span class="p">:</span><span class="mi">03</span> <span class="n">qbn</span><span class="o">-</span><span class="n">node01</span><span class="o">.</span><span class="n">log</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------.</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span> <span class="mi">104</span><span class="n">K</span> <span class="n">Aug</span> <span class="mi">17</span> <span class="mi">10</span><span class="p">:</span><span class="mi">01</span> <span class="n">qbn</span><span class="o">-</span><span class="n">controlplan01</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="from-cockpit">
+<h2>From Cockpit<a class="headerlink" href="#from-cockpit" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

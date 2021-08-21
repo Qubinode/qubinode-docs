@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>How does DNS work in qubinode? &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">How does DNS work in qubinode?</a></li>
+<li><a class="reference internal" href="#access-the-idm-server">Access the IdM Server</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>How does DNS work in qubinode?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/idm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-does-dns-work-in-qubinode">
+<h1>How does DNS work in qubinode?<a class="headerlink" href="#how-does-dns-work-in-qubinode" title="Permalink to this headline">¶</a></h1>
+<p>The qubinode-installer deploys Red Hat Identity Manager (IdM) in a VM.</p>
+<p>The attributes for the DNS server VM are defined in samples/all.yml
+under <strong>IDM DNS Server</strong>. The samples/all.yml is copied to
+playbooks/vars/all.yml when the installer is executed. Some of the key
+attributes are listed below.</p>
+<p>These should not be changed without understanding the ramifications:</p>
+<ul class="simple">
+<li><p>idm_admin_user: The default value is <strong>admin</strong>. This is the user to
+log into the IDM web console.</p></li>
+<li><p>idm_hostname: The default value is <strong>qbn-dns01</strong></p></li>
+</ul>
+<p>These values are either set during the install or can be set by the
+user:</p>
+<ul class="simple">
+<li><p>dns_server_public: This should be a public DNS server such as
+Cloudflare’s 1.1.1.1 where IdM will forward queries to resolve names
+outside of your domain</p></li>
+<li><p>idm_public_ip: The IP address of the IdM server. This is
+auto-populated once the IdM VM has been deployed.</p></li>
+<li><p>idm_admin_password: This is setup when qubinode-installer is executed
+and it’s saved to playbook/vars/vault.yml as <strong>idm_admin_pwd</strong>.</p></li>
+</ul>
+<p>You can force a static ip address on the idm server by setting the
+following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">qubinode</span><span class="o">-</span><span class="n">installer</span><span class="o">/</span>
+<span class="n">vim</span>
+
+<span class="c1"># update the following values</span>
+<span class="n">idm_check_static_ip</span><span class="p">:</span> <span class="n">yes</span>
+<span class="n">idm_server_ip</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.10</span>
+<span class="n">idm_public_ip</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.10</span>
+</pre></div>
+</div>
+<p>The IdM server can be deployed by executing.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">installer</span> <span class="o">-</span><span class="n">p</span> <span class="n">idm</span>
+</pre></div>
+</div>
+<p>This in turn executes the function <strong>qubinode_vm_manager</strong> which then
+excutes the following:</p>
+<ul class="simple">
+<li><p>ansible-playbook “${project_dir}/playbooks/deploy-dns-server.yml”</p>
+<ul>
+<li><p>Deploys the DNS server VM</p></li>
+<li><p>Adds an entry to inventory/hosts</p></li>
+<li><p>Adds an entry to /etc/hosts</p></li>
+<li><p>Populates <em>idm_public_ip</em></p></li>
+</ul>
+</li>
+<li><p>ansible-playbook “${project_dir}/playbooks/idm_server.yml”</p>
+<ul>
+<li><p>Deploys IDM</p></li>
+<li><p>Set the KVM host /etc/resolv.conf to point to the IDM server</p></li>
+</ul>
+</li>
+</ul>
+<p>You can remove the IdM server with. Qubinode Command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">installer</span> <span class="o">-</span><span class="n">p</span> <span class="n">idm</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>Ansible command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">playbooks</span><span class="o">/</span><span class="n">deploy</span><span class="o">-</span><span class="n">dns</span><span class="o">-</span><span class="n">server</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="nb">vars</span> <span class="s2">&quot;vm_teardown=true&quot;</span>
+</pre></div>
+</div>
+<p>This deletes the IdM server from the inventory/hosts file,
+/etc/resolv.conf on the KVM host and /etc/host on the KVM host.</p>
+</div>
+<div class="section" id="access-the-idm-server">
+<h1>Access the IdM Server<a class="headerlink" href="#access-the-idm-server" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ssh</p></li>
+</ul>
+<p>Your ssh-key was copied to IdM vm if you didn’t have one it was
+generated for you.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">qbn</span><span class="o">-</span><span class="n">dns01</span>
+</pre></div>
+</div>
+<p>The web console</p>
+<ul class="simple">
+<li><p>First step is to make sure your desktop points to the IdM server as a
+DNS server or by setting up /etc/hosts.</p></li>
+<li><p>Navigate to <a class="reference external" href="https://qbn-dns01.lunchnet.example">https://qbn-dns01.lunchnet.example</a></p></li>
+<li><p>Login as admin the value for <strong>idm_admin_pwd</strong></p></li>
+</ul>
+<p>You can view this password by runing this command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ansible-vault view $HOME/qubinode-installer/playbooks/vars/vault.yml
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

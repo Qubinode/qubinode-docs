@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Jig - Workshop Service Worker &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Jig - Workshop Service Worker</a><ul>
+<li><a class="reference internal" href="#qubinode-requirements">Qubinode Requirements</a><ul>
+<li><a class="reference internal" href="#install-kustomize">Install kustomize</a></li>
+<li><a class="reference internal" href="#clone-repo">Clone repo</a></li>
+<li><a class="reference internal" href="#cd-into-jig-folder">cd into jig folder</a></li>
+<li><a class="reference internal" href="#deploy-to-openshift-using-kustomize">Deploy to OpenShift using kustomize</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Jig - Workshop Service Worker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/jig.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jig-workshop-service-worker">
+<h1>Jig - Workshop Service Worker<a class="headerlink" href="#jig-workshop-service-worker" title="Permalink to this headline">¶</a></h1>
+<p>This is a PHP application built to provide advanced functionality to Red
+Hat workshops. <a class="reference external" href="https://github.com/kenmoini/jig">Click here to
+contribute</a></p>
+<div class="section" id="qubinode-requirements">
+<h2>Qubinode Requirements<a class="headerlink" href="#qubinode-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Local storage with at 10Gigs os storage
+<code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">changed</span> <span class="pre">if</span> <span class="pre">you</span> <span class="pre">would</span> <span class="pre">like</span></code></p></li>
+</ul>
+<div class="section" id="install-kustomize">
+<h3>Install kustomize<a class="headerlink" href="#install-kustomize" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://kubernetes-sigs.github.io/kustomize/installation/">kustomize</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -s <span class="s2">&quot;https://raw.githubusercontent.com/\</span>
+<span class="s2">kubernetes-sigs/kustomize/master/hack/install_kustomize.sh&quot;</span>  <span class="p">|</span> bash
+$ sudo mv kustomize /usr/local/bin/
+</pre></div>
+</div>
+</div>
+<div class="section" id="clone-repo">
+<h3>Clone repo<a class="headerlink" href="#clone-repo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kenmoini</span><span class="o">/</span><span class="n">jig</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cd-into-jig-folder">
+<h3>cd into jig folder<a class="headerlink" href="#cd-into-jig-folder" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">jig</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deploy-to-openshift-using-kustomize">
+<h3>Deploy to OpenShift using kustomize<a class="headerlink" href="#deploy-to-openshift-using-kustomize" title="Permalink to this headline">¶</a></h3>
+<p><strong>Create jig-workshop-worker project</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc new-project  jig-workshop-worker
+</pre></div>
+</div>
+<p><strong>Deploy mysql database</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc process -f deploy/overlay/openshift/mysql-template.yaml  --param<span class="o">=</span><span class="nv">VOLUME_CAPACITY</span><span class="o">=</span>10Gi <span class="p">|</span> oc create -f -  -n jig-workshop-worker
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Optional update patch-env.yaml</strong></div>
+<div class="line"><em>This will update the configmap for your deployment</em></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="n">deploy</span><span class="o">/</span><span class="n">overlay</span><span class="o">/</span><span class="n">openshift</span><span class="o">/</span><span class="n">patch</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+<p><strong>Validate Configs</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kustomize build deploy/overlay/openshift/ <span class="p">|</span> less
+</pre></div>
+</div>
+<p><strong>Deploy application</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kustomize build deploy/overlay/openshift/ <span class="p">|</span> oc create -f -
+</pre></div>
+</div>
+<p><strong>Get admin password</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc <span class="nb">exec</span> <span class="k">$(</span>oc get pods -n jig-workshop-worker <span class="p">|</span> grep jig-workshop-worker- <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>  -- cat storage/app/generated_admin_password
+</pre></div>
+</div>
+<p><strong>Admin username</strong> * <code class="docutils literal notranslate"><span class="pre">admin&#64;admin.com</span></code></p>
+<p><strong>To delete deployment</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc process -f deploy/overlay/openshift/mysql-template.yaml  --param<span class="o">=</span><span class="nv">VOLUME_CAPACITY</span><span class="o">=</span>10Gi <span class="p">|</span> oc delete -f -  -n jig-workshop-worker
+kustomize build deploy/overlay/openshift/ <span class="p">|</span> oc delete -f -
+oc project delete  jig-workshop-worker
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

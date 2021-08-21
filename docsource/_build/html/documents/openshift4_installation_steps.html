@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Installing an OpenShift 4.x Cluster on a Single Node &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Installing an OpenShift 4.x Cluster on a Single Node</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li><a class="reference internal" href="#get-subscriptions">Get Subscriptions</a><ul>
+<li><a class="reference internal" href="#getting-the-openshift-pull-secret">Getting the OpenShift Pull Secret</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-openshift">Install OpenShift</a><ul>
+<li><a class="reference internal" href="#the-qubinode-installer">The qubinode-installer</a></li>
+<li><a class="reference internal" href="#install-options">Install Options</a></li>
+<li><a class="reference internal" href="#additional-documentation">Additional Documentation</a></li>
+<li><a class="reference internal" href="#troubleshooting-tips">Troubleshooting Tips</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installing an OpenShift 4.x Cluster on a Single Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/openshift4_installation_steps.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-an-openshift-4-x-cluster-on-a-single-node">
+<h1>Installing an OpenShift 4.x Cluster on a Single Node<a class="headerlink" href="#installing-an-openshift-4-x-cluster-on-a-single-node" title="Permalink to this headline">¶</a></h1>
+<p>The following documentation will help you deploy an OpenShift Container
+Platform (OCP) 4.3 cluster, on a single node. The installation steps
+deploys a production like OCP4 cluster, in a environment with 3
+controlplane and 3 computes on a KVM hosts running Red Hat Enterprise
+Linux (RHEL) <img alt="image0" src="https://i.imgur.com/n8TQAyB.png" /></p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Refer to the <a class="reference external" href="../README.md">Getting Started Guide</a> to ensure RHEL 7
+is installed.</p>
+<div class="section" id="get-subscriptions">
+<h3>Get Subscriptions<a class="headerlink" href="#get-subscriptions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Get a Red Hat OpenShift Container Platform (OCP) <a class="reference external" href="https://www.redhat.com/en/technologies/cloud-computing/openshift/try-it?intcmp=701f2000000RQykAAG&amp;extIdCarryOver=true&amp;sc_cid=701f2000001OH74AAG">60-day evalution
+subscription</a>.</p></li>
+</ul>
+<div class="section" id="getting-the-openshift-pull-secret">
+<h4>Getting the OpenShift Pull Secret<a class="headerlink" href="#getting-the-openshift-pull-secret" title="Permalink to this headline">¶</a></h4>
+<table><tr><td><p>Using Token</p>
+</td><td><p>Downloading</p>
+</td></tr><tr><td><p>Navigate to OpenShift Cluster Manager API Token to generate a token and
+save it as ocp_token. This token will be used to download your pull
+secret.</p>
+</td><td><p>From your web browser, navigate to Red Hat OpenShift Cluster Manager.
+Find the Pull secret heading to either download or copy your pull
+secret, save it as pull-secret.txt.</p>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="install-openshift">
+<h2>Install OpenShift<a class="headerlink" href="#install-openshift" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-qubinode-installer">
+<h3>The qubinode-installer<a class="headerlink" href="#the-qubinode-installer" title="Permalink to this headline">¶</a></h3>
+<p>Download and extract the qubinode-installer as a non root user.</p>
+<div class="highlight-shell= notranslate"><div class="highlight"><pre><span></span>cd $HOME
+wget https://github.com/Qubinode/qubinode-installer/archive/master.zip
+unzip master.zip
+rm master.zip
+mv qubinode-installer-master qubinode-installer
+</pre></div>
+</div>
+<p>Place your pull secret and the rhel qcow image under the
+qubinode-installer directory.</p>
+<p>If you are using tokens it should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* $HOME/qubinode-installer/ocp_token
+* $HOME/qubinode-installer/rhsm_token
+</pre></div>
+</div>
+<p>If you downloaded the files instead it should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* $HOME/qubinode-installer/pull-secret.txt
+* $HOME/qubinode-installer/rhel-server-7.8-x86_64-kvm.qcow2
+* $HOME/qubinode-installer/rhel-8.2-x86_64-kvm.qcow2
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-options">
+<h3>Install Options<a class="headerlink" href="#install-options" title="Permalink to this headline">¶</a></h3>
+<p>Choose one of the below options. The quick start is ideal if you meet
+your resource requirements documented in our <a class="reference external" href="hardwareguide.md">hardware
+guide</a>. The advanced option will provide the most
+flexibilty as you can decide which modules you want to execute and also
+customize your OCP4 cluster size.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="ocp4_standard_deploy.md">Standard
+Deploy
+ment</a></p></th>
+<th class="head"><p><a class="reference external" href="ocp4_custom_deploy.md">Custom
+Depl
+oyment</a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Answer questions from the
+installer to deploy a 6 node
+OpenShift 4.x cluster, 3
+controlplane and 3 computes.</p></td>
+<td><p>This option will allow you to
+deploy a 3 only or 4 node cluster
+or to customize the size of the
+cluster.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="additional-documentation">
+<h3>Additional Documentation<a class="headerlink" href="#additional-documentation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="ocp4_cluster_ops.md">Qubinode OpenShift Cluster Operations</a></p></li>
+<li><p><a class="reference external" href="openshift_ldap_config.md">LDAP OpenShift configuration</a></p></li>
+</ul>
+</div>
+<div class="section" id="troubleshooting-tips">
+<h3>Troubleshooting Tips<a class="headerlink" href="#troubleshooting-tips" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="troubleshooting-monitoring.md">Troubleshooting installation</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
