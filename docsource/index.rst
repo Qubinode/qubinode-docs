@@ -1,3 +1,5 @@
+The Qubinode project
+===================================
 .. toctree::
    :maxdepth: 2
    :caption: Contents:

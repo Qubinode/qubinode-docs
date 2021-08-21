@@ -39,7 +39,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="This guide will explain how to create a bootable usb." href="qubinode_bootable_usb.html" />
+    <link rel="prev" title="OpenShift Workloads" href="openshift4_workloads.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,24 +86,49 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">LDAP OpenShift configuration</a><ul>
-<li><a class="reference internal" href="#install-ldapsearch">install ldapsearch</a></li>
-<li><a class="reference internal" href="#create-users-in-idm">Create users in IDM</a></li>
-<li><a class="reference internal" href="#configure-openshift">Configure OpenShift</a></li>
-<li><a class="reference internal" href="#configure-clusteradmin-you-may-optionally-change-the-password">Configure clusteradmin you may optionally change the password</a><ul>
-<li><a class="reference internal" href="#idm-ldap-testing">IDM LDAP TESTING</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs For Qubinode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LDAP OpenShift configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-ldapsearch">install ldapsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-users-in-idm">Create users in IDM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-openshift">Configure OpenShift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-clusteradmin-you-may-optionally-change-the-password">Configure clusteradmin you may optionally change the password</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#idm-ldap-testing">IDM LDAP TESTING</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#openshift-group-sync">OpenShift Group sync</a><ul>
-<li><a class="reference internal" href="#links">Links:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openshift-group-sync">OpenShift Group sync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#links">Links:</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
 </ul>
-</div>
+
             
           
         </div>
@@ -272,6 +299,10 @@ $ ldapsearch -x -H ldaps://qbn-dns01.qubinode-lab.com  -b &quot;uid=${STUDENT_NU
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="qubinode_bootable_usb.html" class="btn btn-neutral float-right" title="This guide will explain how to create a bootable usb." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openshift4_workloads.html" class="btn btn-neutral float-left" title="OpenShift Workloads" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
