@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>LDAP OpenShift configuration &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="This guide will explain how to create a bootable usb." href="qubinode_bootable_usb.html" />
+    <link rel="prev" title="OpenShift Workloads" href="openshift4_workloads.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs For Qubinode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LDAP OpenShift configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-ldapsearch">install ldapsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-users-in-idm">Create users in IDM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-openshift">Configure OpenShift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-clusteradmin-you-may-optionally-change-the-password">Configure clusteradmin you may optionally change the password</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#idm-ldap-testing">IDM LDAP TESTING</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#openshift-group-sync">OpenShift Group sync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#links">Links:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>LDAP OpenShift configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/openshift_ldap_config.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ldap-openshift-configuration">
+<h1>LDAP OpenShift configuration<a class="headerlink" href="#ldap-openshift-configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-ldapsearch">
+<h2>install ldapsearch<a class="headerlink" href="#install-ldapsearch" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">openldap</span><span class="o">-</span><span class="n">clients</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-users-in-idm">
+<h2>Create users in IDM<a class="headerlink" href="#create-users-in-idm" title="Permalink to this headline">¶</a></h2>
+<p><strong>run playbook</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook  -v  playbooks/populate_idm.yml
+</pre></div>
+</div>
+<p><strong>Test</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh administrator@server.idm.example.com
+$ ipa user-show student00
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-openshift">
+<h2>Configure OpenShift<a class="headerlink" href="#configure-openshift" title="Permalink to this headline">¶</a></h2>
+<p><strong>run the playbook</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">v</span> <span class="n">playbooks</span><span class="o">/</span><span class="n">openshift_ldap</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-clusteradmin-you-may-optionally-change-the-password">
+<h2>Configure clusteradmin you may optionally change the password<a class="headerlink" href="#configure-clusteradmin-you-may-optionally-change-the-password" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Login to idm server via web browser</p></li>
+<li><p>Click on actions then <code class="docutils literal notranslate"><span class="pre">Reset</span> <span class="pre">Password</span></code> <img alt="image0" src="https://i.imgur.com/WzBtlHT.png" /></p></li>
+<li><p>default clusteradmin password is <code class="docutils literal notranslate"><span class="pre">clusteradmin</span></code> <img alt="image1" src="https://i.imgur.com/M1LlmC8.png" /></p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">ldapidp</span></code> <img alt="image2" src="https://i.imgur.com/jM8ZhPQ.png" /></p></li>
+<li><p>Login to OpenShift with new Password <img alt="image3" src="https://i.imgur.com/46AfUUP.png" /></p></li>
+<li><p>Give clusteradmin admin rights from oc cli on qubinode</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oc</span> <span class="n">adm</span> <span class="n">policy</span> <span class="n">add</span><span class="o">-</span><span class="n">cluster</span><span class="o">-</span><span class="n">role</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">user</span> <span class="n">cluster</span><span class="o">-</span><span class="n">admin</span> <span class="n">clusteradmin</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Remove kubeadmin</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oc</span> <span class="n">delete</span> <span class="n">secrets</span> <span class="n">kubeadmin</span> <span class="o">-</span><span class="n">n</span> <span class="n">kube</span><span class="o">-</span><span class="n">system</span>
+</pre></div>
+</div>
+<div class="section" id="idm-ldap-testing">
+<h3>IDM LDAP TESTING<a class="headerlink" href="#idm-ldap-testing" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/administration_guide/examples-of-common-ldapsearches">EXAMPLES OF COMMON
+LDAPSEARCHES</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl https://qbn-dns01.qubinode-lab.com/ipa/config/ca.crt -k -o /home/admin/ipa-ca.crt
+</pre></div>
+</div>
+<p><strong>Export ipa cert</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export LDAPTLS_CACERT=$HOME/ipa-ca.crt
+</pre></div>
+</div>
+<p><strong>Test ldap search</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Export Variables
+$ DOMAIN1=qubinode-lab
+$ DOMAIN2=com
+</pre></div>
+</div>
+<p><strong>Print all objects in ldap</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ldapsearch -x -H ldaps://qbn-dns01.qubinode-lab.com  -b &quot;dc=${DOMAIN1},dc=${DOMAIN2}&quot;
+</pre></div>
+</div>
+<p><strong>Get student info</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export  STUDENT_NUM=student00
+$ ldapsearch -x -H ldaps://qbn-dns01.qubinode-lab.com  -b &quot;uid=${STUDENT_NUM},cn=users,cn=accounts,dc=${DOMAIN1},dc=${DOMAIN2}&quot;
+</pre></div>
+</div>
+<p><strong>Get Cluster admin info</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ldapsearch -x -H ldaps://qbn-dns01.qubinode-lab.com  -b &quot;uid=clusteradmin,cn=users,cn=accounts,dc=${DOMAIN1},dc=${DOMAIN2}&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="openshift-group-sync">
+<h2>OpenShift Group sync<a class="headerlink" href="#openshift-group-sync" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">OL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Qubinode</span><span class="o">/</span><span class="n">qubinode</span><span class="o">-</span><span class="n">installer</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">playbooks</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">ldap</span><span class="o">-</span><span class="n">groups</span><span class="o">-</span><span class="n">sync</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+<p><strong>Edit the following line numbers</strong> * 55 * 61 * 70</p>
+<p><strong>Create Deployment</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oc</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">ldap</span><span class="o">-</span><span class="n">groups</span><span class="o">-</span><span class="n">sync</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+<p><strong>Check openshift-authentication for cron job status</strong></p>
+<div class="section" id="links">
+<h3>Links:<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_and_managing_identity_management/Red_Hat_Enterprise_Linux-8-Configuring_and_managing_Identity_Management-en-US.pdf">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_and_managing_identity_management/Red_Hat_Enterprise_Linux-8-Configuring_and_managing_Identity_Management-en-US.pdf</a></p></li>
+<li><p><a class="reference external" href="https://blog.danman.eu/openshift-4-automatic-ldap-group-synchronization/">https://blog.danman.eu/openshift-4-automatic-ldap-group-synchronization/</a></p></li>
+<li><p><a class="reference external" href="https://github.com/redhat-cop/openshift-management">https://github.com/redhat-cop/openshift-management</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="qubinode_bootable_usb.html" class="btn btn-neutral float-right" title="This guide will explain how to create a bootable usb." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openshift4_workloads.html" class="btn btn-neutral float-left" title="OpenShift Workloads" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

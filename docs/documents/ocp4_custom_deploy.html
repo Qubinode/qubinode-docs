@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OpenShift 4.x Custom Deployment &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OpenShift 4.x Standard Cluster Deployment" href="ocp4_standard_deploy.html" />
+    <link rel="prev" title="Qubinode Openshift Cluster Operations" href="ocp4_cluster_ops.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs For Qubinode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OpenShift 4.x Custom Deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#deploy-the-cluster">Deploy the cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deployment-post-steps">Deployment Post Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting-guide">Troubleshooting Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>OpenShift 4.x Custom Deployment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/ocp4_custom_deploy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="openshift-4-x-custom-deployment">
+<h1>OpenShift 4.x Custom Deployment<a class="headerlink" href="#openshift-4-x-custom-deployment" title="Permalink to this headline">¶</a></h1>
+<p>All custom cluster deployment options defaults to 3 ControlPlane nodes.
+A cluster with 3 nodes is smallest cluster deployment size supported by
+the OCP4 installer. When deploying 3 nodes only, each node gets assigned
+the role of compute and controlplane. Each cluster is deployed with NFS
+for persistent storage.</p>
+<ol class="arabic">
+<li><p><strong>Minimal Cluster Deployment Options</strong></p>
+<p>Two options are available for systems with less than 128 Gib memory:</p>
+<ul class="simple">
+<li><p>A 3 node controlplane/compute cluster for systems with only 32 Gib
+memory</p></li>
+<li><p>A 4 node cluster, 3 controlplane and 1 compute for systems with 64
+Gib memory</p></li>
+</ul>
+<p>A minimum of 6 cores is recommended. The 3 node option deploys each
+node with 10 Gib memory and 4 vCPUs. The 4 node option deploys each
+node with 12 Gib memory and 4 vCPUs.</p>
+</li>
+<li><p><strong>Standard and Custom Cluster Deployment Options</strong></p>
+<p>Three options are available for systems with more than 128 Gib
+memory:</p>
+<ul class="simple">
+<li><p>A 5 node cluster 3 controlplane and 2 computes</p></li>
+<li><p>A 6 node cluster 3 controlplane and 2 computes with the option for
+local storage</p></li>
+<li><p>A custom option to increase the number of computes and memory,
+vpcu, storage size for each node</p></li>
+</ul>
+</li>
+<li><p><strong>Recommened Deployment: Standard 6 node cluster with local storage</strong>
+For systems with more than 128 Gib memory and 1 TB of stroage:</p>
+<ul class="simple">
+<li><p>A 6 node cluster 3 controlplane and 3 computes with the option for
+local storage</p></li>
+</ul>
+</li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/qubinode-installer
+./qubinode-installer -m setup
+./qubinode-installer -m rhsm
+./qubinode-installer -m ansible
+./qubinode-installer -m host
+./qubinode-installer -m idm
+./qubinode-installer -m ocp4
+</pre></div>
+</div>
+<div class="section" id="deploy-the-cluster">
+<h2>Deploy the cluster<a class="headerlink" href="#deploy-the-cluster" title="Permalink to this headline">¶</a></h2>
+<p>Please refer to <a class="reference external" href="openshift4_installation_steps.md">Installing an OpenShift 4.x Cluster on a Single
+Node</a> before continuing with this
+install.</p>
+<p>Optional: Change OpenShift major version</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="n">samples</span><span class="o">/</span><span class="n">ocp4</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">ocp4_ystream_release</span><span class="p">:</span> <span class="mf">4.7</span>  <span class="c1"># Example 4.6, 4.5, 4.4</span>
+</pre></div>
+</div>
+<p>For Deployments older than 4.6 update the addtional variables below.
+still testing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># OpenShift Dependencies</span>
+<span class="n">coreos_installer_kernel</span><span class="p">:</span> <span class="s2">&quot;rhcos-installer-kernel-x86_64&quot;</span>
+<span class="n">coreos_installer_initramfs</span><span class="p">:</span> <span class="s2">&quot;rhcos-installer-initramfs.x86_64.img&quot;</span>
+<span class="n">coreos_metal_bios</span><span class="p">:</span> <span class="s2">&quot;rhcos-metal.x86_64.raw.gz&quot;</span>
+<span class="n">coreos_rootfs</span><span class="p">:</span> <span class="s2">&quot;{{ coreos_installer_initramfs }}&quot;</span>
+</pre></div>
+</div>
+<p>Start the installation with the below command. The installation will run
+then present you menu to choose from.</p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>cd $HOME/qubinode-installer
+./qubinode-installer -p ocp4
+</pre></div>
+</div>
+<p>The menu options.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="mf">1.</span> <span class="n">Minimal</span> <span class="mi">3</span> <span class="n">node</span> <span class="n">cluster</span>
+   <span class="mf">2.</span> <span class="n">Minimal</span> <span class="mi">4</span> <span class="n">node</span> <span class="n">cluster</span>
+   <span class="mf">3.</span> <span class="n">Standard</span> <span class="mi">5</span> <span class="n">node</span> <span class="n">cluster</span>
+   <span class="mf">4.</span> <span class="n">Standard</span> <span class="mi">6</span> <span class="n">node</span> <span class="n">cluster</span> <span class="k">with</span> <span class="n">local</span> <span class="n">storage</span>
+   <span class="mf">5.</span> <span class="n">Custom</span> <span class="n">Deployment</span>
+   <span class="mf">6.</span> <span class="n">Exit</span>
+
+
+<span class="n">Enter</span> <span class="n">choice</span> <span class="p">[</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">6</span><span class="p">]</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deployment-post-steps">
+<h2>Deployment Post Steps<a class="headerlink" href="#deployment-post-steps" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="openshift_ldap_config.md">LDAP OpenShift configuration</a></p></li>
+</ul>
+<p>Accessing the cluster web console.</p>
+<ul class="simple">
+<li><p>Option 1: Add dns server to /etc/resolv.conf on your computer.</p>
+<ul>
+<li><p>Or run script found under lib/qubinode_dns_configurator.sh</p></li>
+</ul>
+</li>
+<li><p>Option 2: Add dns server to router so all machines can access the
+OpenShift Cluster.</p></li>
+</ul>
+<p><strong>Additional cluster operations commands are
+avialable</strong><a class="reference external" href="ocp4_cluster_ops.md">here</a></p>
+</div>
+<div class="section" id="troubleshooting-guide">
+<h2>Troubleshooting Guide<a class="headerlink" href="#troubleshooting-guide" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="troubleshooting-monitoring.md">Troubleshooting installation</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ocp4_standard_deploy.html" class="btn btn-neutral float-right" title="OpenShift 4.x Standard Cluster Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ocp4_cluster_ops.html" class="btn btn-neutral float-left" title="Qubinode Openshift Cluster Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

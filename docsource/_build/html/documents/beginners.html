@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Qubinode for Beginners &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="CNAME.html" />
+    <link rel="prev" title="Red Hat Ansible Automation" href="ansible_platform.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Qubinode for Beginners</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-open-source">What is Open Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learn-git">Learn Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learn-linux">Learn Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learn-ansible">Learn Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identity-management-and-active-directory-idm">Identity Management and Active Directory (IDM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learn-docker">Learn Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openshift-container-platform-ocp">OpenShift Container Platform(OCP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#devops-explained">DevOps explained</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs For Qubinode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Qubinode for Beginners</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/beginners.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qubinode-for-beginners">
+<h1>Qubinode for Beginners<a class="headerlink" href="#qubinode-for-beginners" title="Permalink to this headline">¶</a></h1>
+<p>Below are a list of resources to help understand different tools and
+products that Qubinode uses.</p>
+<div class="section" id="what-is-open-source">
+<h2>What is Open Source<a class="headerlink" href="#what-is-open-source" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.redhat.com/en/about/videos/default-open-story-open-source-and-red-hat">The story of open source and Red
+Hat</a></p></li>
+<li><p><a class="reference external" href="https://www.redhat.com/en/about/videos/why-does-open-source-development-model-matter">Why does the open source development model
+matter?</a></p></li>
+<li><p><a class="reference external" href="https://training.linuxfoundation.org/resources/free-courses/beginner-guide-to-oss-development/">A Beginner’s Guide to Open Source Software Development- Free
+training</a></p></li>
+</ul>
+</div>
+<div class="section" id="learn-git">
+<h2>Learn Git<a class="headerlink" href="#learn-git" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://up1.github.io/git-guide/index.html">git - the simple
+guide</a></p></li>
+<li><p><a class="reference external" href="https://www.udemy.com/course/git-started-with-github/?LSNPUBID#JVFxdTr9V80&amp;ranEAID#JVFxdTr9V80&amp;ranMID#39197&amp;ranSiteID#JVFxdTr9V80-.bZFecwMwT1Q7sID5_zvnw">Git Started with
+GitHub</a></p></li>
+<li><p><a class="reference external" href="https://www.codecademy.com/learn/learn-git">Learn Git</a></p></li>
+<li><p><a class="reference external" href="https://www.udemy.com/course/the-ultimate-git-5-day-challenge/?LSNPUBID#JVFxdTr9V80&amp;ranEAID#JVFxdTr9V80&amp;ranMID#39197&amp;ranSiteID#JVFxdTr9V80-TNDYYjklBd_4OJ.xrTYC0w">The Ultimate GIT 5-day
+Challenge</a></p></li>
+<li><p><a class="reference external" href="https://www.udemy.com/course/git-expert-4-hours/?LSNPUBID#JVFxdTr9V80&amp;ranEAID#JVFxdTr9V80&amp;ranMID#39197&amp;ranSiteID#JVFxdTr9V80-PMFh_pACYptdCuqEXKOn2Q">Git: Become an Expert in Git &amp; GitHub in 4
+Hours</a></p></li>
+<li><p><a class="reference external" href="https://learngitbranching.js.org/">Learn Git Branching</a></p></li>
+<li><p><a class="reference external" href="https://www.udemy.com/course/git-and-github-step-by-step-for-beginners/?LSNPUBID#JVFxdTr9V80&amp;ranEAID#JVFxdTr9V80&amp;ranMID#39197&amp;ranSiteID#JVFxdTr9V80-Yag1VYn0DmU_zN2oAsj4QQ">Git and GitHub - Step by Step for
+Beginners</a></p></li>
+</ul>
+</div>
+<div class="section" id="learn-linux">
+<h2>Learn Linux<a class="headerlink" href="#learn-linux" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://training.linuxfoundation.org/resources/free-courses/introduction-to-linux/">Introduction to
+Linux</a></p></li>
+<li><p><a class="reference external" href="https://www.edx.org/course/fundamentals-of-red-hat-enterprise-linux">Fundamentals of Red Hat Enterprise
+Linux</a></p></li>
+<li><p><a class="reference external" href="https://www.edx.org/course/fundamentals-of-containers-kubernetes-and-red-hat">Fundamentals of Containers, Kubernetes, and Red Hat
+OpenShift</a></p></li>
+<li><p><a class="reference external" href="https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam">Red Hat Certified System Administrator (RHCSA) exam
+(EX200)</a></p></li>
+<li><p><a class="reference external" href="https://www.redhat.com/en/services/training/ex300-red-hat-certified-engineer-rhce-exam-red-hat-enterprise-linux-7">Red Hat Certified Engineer (RHCE) exam for Red Hat Enterprise Linux
+7
+(EX300)</a></p></li>
+</ul>
+</div>
+<div class="section" id="learn-ansible">
+<h2>Learn Ansible<a class="headerlink" href="#learn-ansible" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.redhat.com/en/services/certification/rhcs-ansible-automation">Red Hat Certified Specialist in Ansible
+Automation</a></p></li>
+</ul>
+</div>
+<div class="section" id="identity-management-and-active-directory-idm">
+<h2>Identity Management and Active Directory (IDM)<a class="headerlink" href="#identity-management-and-active-directory-idm" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.redhat.com/en/services/training/rh362-red-hat-security-identity-management-and-active-directory-integration">Red Hat Security: Identity Management and Active Directory
+Integration</a></p></li>
+</ul>
+</div>
+<div class="section" id="learn-docker">
+<h2>Learn Docker<a class="headerlink" href="#learn-docker" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learndocker.online/">LearnDocker.online</a></p></li>
+<li><p><a class="reference external" href="https://www.katacoda.com/courses/docker">Learn Docker &amp; Containers using Interactive Browser-Based
+Scenarios</a></p></li>
+</ul>
+</div>
+<div class="section" id="openshift-container-platform-ocp">
+<h2>OpenShift Container Platform(OCP)<a class="headerlink" href="#openshift-container-platform-ocp" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.edx.org/course/fundamentals-of-containers-kubernetes-and-red-hat">Fundamentals of Containers, Kubernetes, and Red Hat
+OpenShift</a></p></li>
+<li><p><a class="reference external" href="https://learn.openshift.com/">learn.openshift.com</a></p></li>
+<li><p><a class="reference external" href="https://www.redhat.com/en/services/training/do180-introduction-containers-kubernetes-red-hat-openshift">Introduction to Containers, Kubernetes, and Red Hat
+OpenShift</a></p></li>
+<li><p><a class="reference external" href="https://www.redhat.com/en/services/training/do280-red-hat-openshift-administration-i">Red Hat OpenShift Administration I
+(DO280)</a></p></li>
+<li><p><a class="reference external" href="https://www.redhat.com/en/services/training/do380-red-hat-openshift-administration-ii-high-availability">Red Hat OpenShift Administration II
+(DO380)</a></p></li>
+<li><p><a class="reference external" href="https://awesome-kubernetes.readthedocs.io/openshift/">Awesome
+Kubernetes</a></p></li>
+</ul>
+</div>
+<div class="section" id="devops-explained">
+<h2>DevOps explained<a class="headerlink" href="#devops-explained" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://training.linuxfoundation.org/resources/free-courses/introduction-to-site-reliability-engineering-and-devops/">Introduction to Site Reliability Engineering and
+DevOps</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="CNAME.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ansible_platform.html" class="btn btn-neutral float-left" title="Red Hat Ansible Automation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

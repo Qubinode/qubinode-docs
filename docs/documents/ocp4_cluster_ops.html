@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Qubinode Openshift Cluster Operations &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OpenShift 4.x Custom Deployment" href="ocp4_custom_deploy.html" />
+    <link rel="prev" title="Jig - Workshop Service Worker" href="jig.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs For Qubinode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Qubinode Openshift Cluster Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-the-ip-address-of-the-dns-server">Get the IP address of the dns server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#option-1-update-etc-resolv-conf">Option 1: Update /etc/resolv.conf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-2-have-your-home-router-or-networkmanager-forward-dns-queries">Option 2: Have your home router or NetworkManager forward DNS queries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cluster">Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storage">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workers">Workers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-remove-computes-to-upi-cluster">Add / Remove computes to UPI cluster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Qubinode Openshift Cluster Operations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/ocp4_cluster_ops.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qubinode-openshift-cluster-operations">
+<h1>Qubinode Openshift Cluster Operations<a class="headerlink" href="#qubinode-openshift-cluster-operations" title="Permalink to this headline">¶</a></h1>
+<p>The cluster is deployed with a DNS server by default to provide DNS
+resolution. You will have to point to the DNS server running on the
+Qubinode in order to access your cluster.</p>
+<div class="section" id="get-the-ip-address-of-the-dns-server">
+<h2>Get the IP address of the dns server<a class="headerlink" href="#get-the-ip-address-of-the-dns-server" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">qubinode</span><span class="o">-</span><span class="n">installer</span> <span class="o">-</span><span class="n">p</span> <span class="n">idm</span> <span class="o">-</span><span class="n">m</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p>Should return some similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  IdM server is installed
+****************************************************
+ Webconsole: https://qbn-dns01.lab.example/ipa/ui/
+ IP Address: 192.168.11.13
+ Username: admin
+ Password: the vault variable admin_user_password
+
+ Run: ansible-vault view $HOME/qubinode-installer/playbooks/vars/vault.yml
+</pre></div>
+</div>
+<div class="section" id="option-1-update-etc-resolv-conf">
+<h3>Option 1: Update /etc/resolv.conf<a class="headerlink" href="#option-1-update-etc-resolv-conf" title="Permalink to this headline">¶</a></h3>
+<p><strong>Manually</strong></p>
+<p>Edit /etc/resolv.conf and add the ip address of the IdM server.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+<p>The result should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">search</span> <span class="n">lab</span><span class="o">.</span><span class="n">example</span>
+<span class="n">nameserver</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">11.13</span>
+</pre></div>
+</div>
+<p><strong>Using a script</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">OL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Qubinode</span><span class="o">/</span><span class="n">qubinode</span><span class="o">-</span><span class="n">installer</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">qubinode_dns_configurator</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">qubinode_dns_configurator</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">./</span><span class="n">qubinode_dns_configurator</span><span class="o">.</span><span class="n">sh</span> <span class="n">idm_server_ip</span> <span class="n">openshift_url</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-2-have-your-home-router-or-networkmanager-forward-dns-queries">
+<h3>Option 2: Have your home router or NetworkManager forward DNS queries<a class="headerlink" href="#option-2-have-your-home-router-or-networkmanager-forward-dns-queries" title="Permalink to this headline">¶</a></h3>
+<p>If your home router is built on openwrt or uses dnsmasq for DNS, you can
+have it forward all dns entries for your OKD domain to the IdM server.</p>
+<p>You can also do the same thing with
+<a class="reference external" href="https://fedoramagazine.org/using-the-networkmanagers-dnsmasq-plugin/">NetworkManager</a>.</p>
+</div>
+</div>
+<div class="section" id="cluster">
+<h2>Cluster<a class="headerlink" href="#cluster" title="Permalink to this headline">¶</a></h2>
+<p>The examples below assume you have ocp4 deployed. If you have deployed
+okd4, just replace ocp4 with okd4.</p>
+<p><strong>Tear down the cluster</strong></p>
+<p>This will remove the cluster, this includes all RHCOS vms and removing
+dns entries.</p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -d
+</pre></div>
+</div>
+<p><strong>Report the status of the cluster</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -m status
+</pre></div>
+</div>
+<p><strong>Shutdown the cluster</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -m shutdown
+</pre></div>
+</div>
+<p><strong>Startup the cluster</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -m startup
+</pre></div>
+</div>
+</div>
+<div class="section" id="storage">
+<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+<p><strong>To configure nfs-provisioner for registry</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -a <span class="nv">storage</span><span class="o">=</span>nfs
+</pre></div>
+</div>
+<p><strong>To remove nfs-provisioner for registry</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -a <span class="nv">storage</span><span class="o">=</span>nfs-remove
+</pre></div>
+</div>
+<p><strong>To configure localstorage</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -m storage -a <span class="nv">storage</span><span class="o">=</span>localstorage
+</pre></div>
+</div>
+<p><strong>To remove localstorage</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -m storage -a <span class="nv">storage</span><span class="o">=</span>localstorage-remove
+</pre></div>
+</div>
+</div>
+<div class="section" id="workers">
+<h2>Workers<a class="headerlink" href="#workers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-remove-computes-to-upi-cluster">
+<h3>Add / Remove computes to UPI cluster<a class="headerlink" href="#add-remove-computes-to-upi-cluster" title="Permalink to this headline">¶</a></h3>
+<p>[1] <a class="reference external" href="https://access.redhat.com/solutions/4799921">https://access.redhat.com/solutions/4799921</a></p>
+<p>Add additional computes to your cluster, the example below will add one
+additional compute to your cluster. If your current compute count was 3,
+this would make it 4.</p>
+<p>The value for <strong>count</strong> can be 1-10. The count is from 0-9, a count
+value of 10 will result is nodes 0 - 9.</p>
+<p><strong>Add new computes</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -m add-compute -a <span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p><strong>Remove computes</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p ocp4 -m remove-compute -a <span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p><strong>Configure 20 users on OpenShift using .htaccess</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">passlib</span>
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span>  <span class="o">-</span><span class="n">vv</span> <span class="n">playbooks</span><span class="o">/</span><span class="n">ocp_htpasswd_users</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ocp4_custom_deploy.html" class="btn btn-neutral float-right" title="OpenShift 4.x Custom Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jig.html" class="btn btn-neutral float-left" title="Jig - Workshop Service Worker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
