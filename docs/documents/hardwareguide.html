@@ -1,0 +1,1228 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Hardware Specs For Qubinode &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Qubinode Overview" href="hardware_test.html" />
+    <link rel="prev" title="Qubinode Git branching strategy" href="CONTRIBUTING.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hardware Specs For Qubinode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#openshift-single-node-hardware-spec-table">OpenShift Single Node Hardware Spec Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recommended-hardware">Recommended Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#option-1-superserver-e200-8d-6-cores">Option 1: SuperServer E200-8D 6 Cores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-2-superserver-e301-9d-8cn4-8-cores">Option 2: Superserver E301-9D-8CN4 8 Cores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-3-superserver-e300-9d-8cn8tp-8-cores">Option 3: Superserver E300-9D-8CN8TP 8 Cores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-4-build-it-32-core-system-with-256g-ram">Option 4: Build-it 32 Core System with 256G Ram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-options">Other Options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Hardware Specs For Qubinode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/hardwareguide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hardware-specs-for-qubinode">
+<h1>Hardware Specs For Qubinode<a class="headerlink" href="#hardware-specs-for-qubinode" title="Permalink to this headline">¶</a></h1>
+<p>The qubinode-installer supports deploying multiple Red Hat products,
+such as IdM and Satellite. The primary products that we focus on are
+OCP4, OCP3 and IdM.</p>
+<p>The table below defines what is needed for an OpenShift Deployment.</p>
+<div class="section" id="openshift-single-node-hardware-spec-table">
+<h2>OpenShift Single Node Hardware Spec Table<a class="headerlink" href="#openshift-single-node-hardware-spec-table" title="Permalink to this headline">¶</a></h2>
+<p>This was originally created base on OCP3. We have not validated the
+minimum requirements for OCP4. However, the recommended should work for
+both OCP3 and OCP4.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 24%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><strong>Minimum</strong></p></th>
+<th class="head"><p><strong>Recommended</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>CPU</strong></p></td>
+<td><p>6 Core</p></td>
+<td><p>8 core or more</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Memory</strong></p></td>
+<td><p>64 GB</p></td>
+<td><p>128 or more</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Root Disk</strong></p></td>
+<td><p>80 GB SSD</p></td>
+<td><p>500 or more</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Secondary Drive</strong></p></td>
+<td><p>500 GB SSD</p></td>
+<td><p>1 TB Nvme Drive</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="recommended-hardware">
+<h2>Recommended Hardware<a class="headerlink" href="#recommended-hardware" title="Permalink to this headline">¶</a></h2>
+<p>Here are some hardware we recommend for standing up an OCP cluster on a
+single node. We have validated that the below is enough to deploy a
+production like OCP cluster. That will be sufficient for a operator
+needing to learn OpenShift and also validate some production type
+deployment. The hardware may not be sufficient to run some workloads. We
+have not yet explore the limits in terms of what sorts of apps you can
+run with reasonable performance.</p>
+<p><strong>Router</strong></p>
+<p>The router and cables are optional. The router makes the qubinode
+portable. You can plug the router into an existing wired network or
+bridge an existing wireless network. If you plug it into an existing
+wired network, you would need to setup static routes. Bridging a
+wireless network is the easiest way to drop the qubinode into any
+network.</p>
+<div class="figure align-default" id="id1">
+<img alt="Example Router Usage" src="documents/img/QubinodeHardware.jpeg" />
+<p class="caption"><span class="caption-text">Example Router Usage</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="option-1-superserver-e200-8d-6-cores">
+<h3>Option 1: SuperServer E200-8D 6 Cores<a class="headerlink" href="#option-1-superserver-e200-8d-6-cores" title="Permalink to this headline">¶</a></h3>
+<p>Before the AMD system below this was the cheapest option available.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mponets</strong></p></th>
+<th class="head"><p><strong>Desc
+ription</strong></p></th>
+<th class="head"><p><strong>Unit
+Cost</strong></p></th>
+<th class="head"><p><strong>QTY</strong></p></th>
+<th class="head"><p><strong>Total</strong></p></th>
+<th class="head"><p><strong>Amazon
+URL</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>Su
+perServer
+E200-8D 6
+Cores, 12
+Threads,
+1
+.9-2.2GHz</p></td>
+<td><p>$858.95</p></td>
+<td><p>1</p></td>
+<td><p>$858.95</p></td>
+<td><p>https
+://amzn.t
+o/2VZMIX4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory</p></td>
+<td><p>Samsung
+M393A4K
+40BB1-CRC
+32GB
+DDR4-2400
+LP ECC
+Reg
+Server
+Memory</p></td>
+<td><p>$101</p></td>
+<td><p>4</p></td>
+<td><p>$402</p></td>
+<td><p>https
+://amzn.t
+o/2MZuf8G</p></td>
+</tr>
+<tr class="row-even"><td><p>SSD</p></td>
+<td><p>WD Blue
+3D NAND
+500GB
+Internal
+PC SSD -
+SATA III
+6 Gb/s,
+2.5”/7mm,
+Up to 560
+MB/s -
+WD
+S500G2B0A</p></td>
+<td><p>$63.99</p></td>
+<td><p>1</p></td>
+<td><p>$63.99</p></td>
+<td><p>https
+://amzn.t
+o/2P0JXDh</p></td>
+</tr>
+<tr class="row-odd"><td><p>NVME</p></td>
+<td><p>Intel
+Solid
+State
+Drive
+(SSD),
+660P
+Series, 1
+TB</p></td>
+<td><p>$99.99</p></td>
+<td><p>1</p></td>
+<td><p>$99.99</p></td>
+<td><p>https
+://amzn.t
+o/2MTnIMW</p></td>
+</tr>
+<tr class="row-even"><td><p>Router</p></td>
+<td><p>GL.iNet
+GL-A
+R750S-Ext
+Gigabit
+Travel AC
+Router
+(Slate),
+300Mbps
+(2.4G)+43
+3Mbps(5G)
+Wi-Fi,
+128MB
+RAM,
+MicroSD
+Support,
+Ope
+nWrt/LEDE
+pre-I
+nstalled,
+C
+loudflare
+DNS,
+Power
+Adapter
+and
+Cables
+Included</p></td>
+<td><p>$69.99</p></td>
+<td><p>1</p></td>
+<td><p>$69.99</p></td>
+<td><p>https
+://amzn.t
+o/33GUuYr</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cable</p></td>
+<td><p>Insta
+llerParts
+Ethernet
+Cable
+CAT6
+Cable UTP
+Booted 1
+FT -
+Green -
+Pro
+fessional
+Series -
+10Gi
+gabit/Sec
+Net
+work/High
+Speed
+Internet
+Cable,
+550MHZ</p></td>
+<td><p>$5.79</p></td>
+<td><p>2</p></td>
+<td><p>$11.58</p></td>
+<td><p>https
+://amzn.t
+o/2VTXEoQ</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p><strong>S
+ubtotal</strong></p></td>
+<td></td>
+<td><p>$1,506.50</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="option-2-superserver-e301-9d-8cn4-8-cores">
+<h3>Option 2: Superserver E301-9D-8CN4 8 Cores<a class="headerlink" href="#option-2-superserver-e301-9d-8cn4-8-cores" title="Permalink to this headline">¶</a></h3>
+<p>This system has not been tested, however, we included it here because of
+the price for a 8 core/16 thread system. This is a better buy vs option
+1.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mponets</strong></p></th>
+<th class="head"><p><strong>Desc
+ription</strong></p></th>
+<th class="head"><p><strong>Unit
+Cost</strong></p></th>
+<th class="head"><p><strong>QTY</strong></p></th>
+<th class="head"><p><strong>Total</strong></p></th>
+<th class="head"><p><strong>Amazon
+URL</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>S
+upermicro
+A+ Server
+E301
+-9D-8CN4,
+8 Core/16
+Thread,
+RCC DDR4
+2666MHz
+SDRAM in
+4 DIMMs</p></td>
+<td><p>$999.95</p></td>
+<td><p>1</p></td>
+<td><p>$999.95</p></td>
+<td><p>https
+://amzn.t
+o/31vYbhU</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory</p></td>
+<td><p>Samsung
+M393A4K
+40BB1-CRC
+32GB
+DDR4-2400
+LP ECC
+Reg
+Server
+Memory</p></td>
+<td><p>$101</p></td>
+<td><p>4</p></td>
+<td><p>$402</p></td>
+<td><p>https
+://amzn.t
+o/2MZuf8G</p></td>
+</tr>
+<tr class="row-even"><td><p>SSD</p></td>
+<td><p>WD Blue
+3D NAND
+500GB
+Internal
+PC SSD -
+SATA III
+6 Gb/s,
+2.5”/7mm,
+Up to 560
+MB/s -
+WD
+S500G2B0A</p></td>
+<td><p>$63.99</p></td>
+<td><p>1</p></td>
+<td><p>$63.99</p></td>
+<td><p>https
+://amzn.t
+o/2P0JXDh</p></td>
+</tr>
+<tr class="row-odd"><td><p>NVME</p></td>
+<td><p>Intel
+Solid
+State
+Drive
+(SSD),
+660P
+Series, 1
+TB</p></td>
+<td><p>$99.99</p></td>
+<td><p>1</p></td>
+<td><p>$99.99</p></td>
+<td><p>https
+://amzn.t
+o/2MTnIMW</p></td>
+</tr>
+<tr class="row-even"><td><p>Router</p></td>
+<td><p>GL.iNet
+GL-A
+R750S-Ext
+Gigabit
+Travel AC
+Router
+(Slate),
+300Mbps
+(2.4G)+43
+3Mbps(5G)
+Wi-Fi,
+128MB
+RAM,
+MicroSD
+Support,
+Ope
+nWrt/LEDE
+pre-I
+nstalled,
+C
+loudflare
+DNS,
+Power
+Adapter
+and
+Cables
+Included</p></td>
+<td><p>$69.99</p></td>
+<td><p>1</p></td>
+<td><p>$69.99</p></td>
+<td><p>https
+://amzn.t
+o/33GUuYr</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cable</p></td>
+<td><p>Insta
+llerParts
+Ethernet
+Cable
+CAT6
+Cable UTP
+Booted 1
+FT -
+Green -
+Pro
+fessional
+Series -
+10Gi
+gabit/Sec
+Net
+work/High
+Speed
+Internet
+Cable,
+550MHZ</p></td>
+<td><p>$5.79</p></td>
+<td><p>2</p></td>
+<td><p>$11.58</p></td>
+<td><p>https
+://amzn.t
+o/2VTXEoQ</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p><strong>S
+ubtotal</strong></p></td>
+<td></td>
+<td><p>$1,647.50</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="option-3-superserver-e300-9d-8cn8tp-8-cores">
+<h3>Option 3: Superserver E300-9D-8CN8TP 8 Cores<a class="headerlink" href="#option-3-superserver-e300-9d-8cn8tp-8-cores" title="Permalink to this headline">¶</a></h3>
+<p>This is what we are using. Assuming Option 2 works well, it’s a more
+cost effective than this. You can the same amount of cores and threads.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mponets</strong></p></th>
+<th class="head"><p><strong>Desc
+ription</strong></p></th>
+<th class="head"><p><strong>Unit
+Cost</strong></p></th>
+<th class="head"><p><strong>QTY</strong></p></th>
+<th class="head"><p><strong>Total</strong></p></th>
+<th class="head"><p><strong>Amazon
+URL</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>S
+upermicro
+Su
+perserver
+E300-
+9D-8CN8TP
+Intel
+Xeon
+D-2146NT
+N
+etworking
+PC w/ 2X
+SFP+, 2X
+10GbE
+LAN, 4X
+GbE LAN,
+IPMI,
+4xDIMMS,
+256GB
+RDIMM,
+512G
+LRDIMM, 8
+cores, 16
+threads,
+CPU TDP
+80w</p></td>
+<td><p>$1,653.25</p></td>
+<td><p>1</p></td>
+<td><p>$1,653.25</p></td>
+<td><p>https
+://amzn.t
+o/2px72CS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory</p></td>
+<td><p>Samsung
+M393A4K
+40BB1-CRC
+32GB
+DDR4-2400
+LP ECC
+Reg
+Server
+Memory</p></td>
+<td><p>$101</p></td>
+<td><p>4</p></td>
+<td><p>$402</p></td>
+<td><p>https
+://amzn.t
+o/2MZuf8G</p></td>
+</tr>
+<tr class="row-even"><td><p>SSD</p></td>
+<td><p>Samsung
+860 EVO
+500GB 2.5
+Inch SATA
+III
+Internal
+SSD
+(MZ-76
+E500B/AM)</p></td>
+<td><p>$74.99</p></td>
+<td><p>1</p></td>
+<td><p>$74.99</p></td>
+<td><p>https
+://amzn.t
+o/31vSLU6</p></td>
+</tr>
+<tr class="row-odd"><td><p>NVME</p></td>
+<td><p>Samsung
+970 PRO
+Series -
+1TB PCIe
+NVMe -
+M.2
+Internal
+SSD
+Black/Red
+(MZ-
+V7P1T0BW)</p></td>
+<td><p>$338.48</p></td>
+<td><p>1</p></td>
+<td><p>$338.48</p></td>
+<td><p>https
+://amzn.t
+o/31vk4OC</p></td>
+</tr>
+<tr class="row-even"><td><p>Router</p></td>
+<td><p>GL.iNet
+GL-A
+R750S-Ext
+Gigabit
+Travel AC
+Router
+(Slate),
+300Mbps
+(2.4G)+43
+3Mbps(5G)
+Wi-Fi,
+128MB
+RAM,
+MicroSD
+Support,
+Ope
+nWrt/LEDE
+pre-I
+nstalled,
+C
+loudflare
+DNS,
+Power
+Adapter
+and
+Cables
+Included</p></td>
+<td><p>$69.99</p></td>
+<td><p>1</p></td>
+<td><p>$69.99</p></td>
+<td><p>https
+://amzn.t
+o/33GUuYr</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cable</p></td>
+<td><p>Insta
+llerParts
+Ethernet
+Cable
+CAT6
+Cable UTP
+Booted 1
+FT -
+Green -
+Pro
+fessional
+Series -
+10Gi
+gabit/Sec
+Net
+work/High
+Speed
+Internet
+Cable,
+550MHZ</p></td>
+<td><p>$5.79</p></td>
+<td><p>2</p></td>
+<td><p>$11.58</p></td>
+<td><p>https
+://amzn.t
+o/2VTXEoQ</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p><strong>S
+ubtotal</strong></p></td>
+<td></td>
+<td><p>$2,550.29</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="option-4-build-it-32-core-system-with-256g-ram">
+<h3>Option 4: Build-it 32 Core System with 256G Ram<a class="headerlink" href="#option-4-build-it-32-core-system-with-256g-ram" title="Permalink to this headline">¶</a></h3>
+<p>This is not a portable option. However, if you have the space, looking
+for something with more power but don’t want to buy a used HP or Dell.
+Then this is a quiet, good on power easy DIY build.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ompon
+ets</strong></p></th>
+<th class="head"><p><strong>Des
+cript
+ion</strong></p></th>
+<th class="head"><p><strong>Unit
+Cost</strong></p></th>
+<th class="head"><p><strong>QTY</strong></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Total*</em></p>
+</th>
+<th class="head"><p><strong>Buy
+URL</strong></p></th>
+<th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Notes*</em></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>M
+other
+board</p></td>
+<td><p>A
+SRock
+M
+other
+board
+ATX
+DDR3
+1066
+Intel
+LGA
+2011
+EP2C
+602-4
+L/D16</p></td>
+<td><p>$349.99</p></td>
+<td><p>1</p></td>
+<td><p>$349.99</p></td>
+<td><p>https:
+//bit.ly
+/2W05Xzx</p></td>
+<td><p>Any LGA
+2011
+Socket
+mot
+herboard
+can be
+used
+here</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPU</p></td>
+<td><p>Intel
+Mat
+ching
+Pair
+Xeon
+E5
+-2670
+Eight
+Cores
+Proce
+ssors
+2.
+60GHz
+20MB
+Smart
+Cache
+8.00
+GT/S
+QPI
+TDP
+115W
+SR0KX
+BX8
+0621E
+52670</p></td>
+<td><p>$132.99</p></td>
+<td><p>1</p></td>
+<td><p>$132.99</p></td>
+<td><p><a class="reference external" href="https:/">https:/</a>
+/amzn.to
+/2P0N91G</p></td>
+<td><p>Most
+E5-26xx
+should
+work
+with
+above
+mot
+herboard</p></td>
+</tr>
+<tr class="row-even"><td><p>M
+emory</p></td>
+<td><p>Ti
+metec
+128GB
+Kit
+(8x
+16GB)
+DDR3L
+16
+00MHz
+PC3-
+12800
+Regis
+tered
+ECC
+1.35V
+CL11
+2Rx4
+Dual
+Rank
+240
+Pin
+RDIMM
+S
+erver
+M
+emory
+RAM
+M
+odule
+Up
+grade
+(
+128GB
+Kit
+(8x1
+6GB))</p></td>
+<td><p>$312.99</p></td>
+<td><p>2</p></td>
+<td><p>$625.98</p></td>
+<td><p><a class="reference external" href="https:/">https:/</a>
+/amzn.to
+/2VUqcPj</p></td>
+<td><p>Cheapest
+a
+vailable</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPU
+FAN</p></td>
+<td><p>N
+octua
+NH
+-D14,
+Pr
+emium
+CPU
+C
+ooler
+with
+Dual
+N
+F-P14
+PWM
+and
+N
+F-P12
+PWM
+Fans
+(B
+rown)</p></td>
+<td><p>$79.95</p></td>
+<td><p>2</p></td>
+<td><p>$159.90</p></td>
+<td><p><a class="reference external" href="https:/">https:/</a>
+/amzn.to
+/31q9Ij3</p></td>
+<td><p>Fan need
+to be
+co
+mpatible
+with
+L
+GA2011-3
+Square
+ILM</p></td>
+</tr>
+<tr class="row-even"><td><p>Case</p></td>
+<td><p>Ros
+ewill
+4U
+S
+erver
+Chas
+sis/S
+erver
+Case
+/Rack
+mount
+Case,
+Metal
+Rack
+Mount
+Com
+puter
+Case
+with
+8
+Bays
+&amp; 4
+Fans
+Pre
+-Inst
+alled
+(
+RSV-R
+4000)</p></td>
+<td><p>104.99</p></td>
+<td><p>1</p></td>
+<td><p>104.99</p></td>
+<td><p><a class="reference external" href="https:/">https:/</a>
+/amzn.to
+/2P84R3z</p></td>
+<td><p>Not sure
+if the
+mot
+herboard
+would
+fit in
+standard
+ATX
+case.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Power
+S
+upply</p></td>
+<td><p>CO
+RSAIR
+RMX
+Se
+ries,
+RM
+850x,
+850
+Watt,
+80+
+Gold
+Certi
+fied,
+Fully
+Mo
+dular
+Power
+S
+upply</p></td>
+<td><p>$129.97</p></td>
+<td><p>1</p></td>
+<td><p>$129.97</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>NVME</p></td>
+<td><p>Intel
+Solid
+State
+Drive
+(
+SSD),
+660P
+Se
+ries,
+1 TB</p></td>
+<td><p>$99.99</p></td>
+<td><p>1</p></td>
+<td><p>$99.99</p></td>
+<td><p><a class="reference external" href="https:/">https:/</a>
+/amzn.to
+/2MTnIMW</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PCI
+to
+NVME
+Ad
+apter</p></td>
+<td><p>M.2
+NVMe
+SSD
+NGFF
+to
+PCIE
+3.0
+X16
+/X4
+Ad
+apter
+M Key
+Inte
+rface
+Card
+Su
+pport
+PCI
+Ex
+press
+3.0
+x4
+2230
+-2280
+Size
+m.2
+Full
+Speed
+(
+Black
+Gold</p></td>
+<td><p>$13.99</p></td>
+<td><p>1</p></td>
+<td><p>$13.99</p></td>
+<td><p><a class="reference external" href="https:/">https:/</a>
+/amzn.to
+/33HbZYD</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SSD</p></td>
+<td><p>WD
+Blue
+3D
+NAND
+500GB
+Int
+ernal
+PC
+SSD -
+SATA
+III 6
+Gb/s,
+2.5”
+/7mm,
+Up to
+560
+MB/s
+-
+W
+DS500
+G2B0A</p></td>
+<td><p>$63.99</p></td>
+<td><p>1</p></td>
+<td><p>$63.99</p></td>
+<td><p><a class="reference external" href="https:/">https:/</a>
+/amzn.to
+/2P0JXDh</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p><strong>Su
+btotal</strong></p></td>
+<td></td>
+<td><p>$
+1,681.79</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="other-options">
+<h3>Other Options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Recent reddit r/homelab thread <a class="reference external" href="https://www.reddit.com/r/homelab/comments/elg5ti/miniitx_server_build_amd_epyc_3251_with_noctua/">Mini-ITX Server build: AMD EPYC 3251
+with Noctua C14S CPU Cooler, 256 GB RAM ECC + 2 x 2TB Samsung 970 EVO
+NVMe
+storage</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="hardware_test.html" class="btn btn-neutral float-right" title="Qubinode Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="CONTRIBUTING.html" class="btn btn-neutral float-left" title="Qubinode Git branching strategy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

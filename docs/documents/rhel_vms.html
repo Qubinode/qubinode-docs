@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Deploying Red Hat Enterprise Linux VMs &mdash; The Q 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Red Hat Workshops, but make it spicy" href="rh-workshops.html" />
+    <link rel="prev" title="Qubinode Release history" href="releases.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs For Qubinode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Red Hat Enterprise Linux VMs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deploying-a-rhel-vm">Deploying a RHEL VM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Q</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Deploying Red Hat Enterprise Linux VMs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/rhel_vms.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deploying-red-hat-enterprise-linux-vms">
+<h1>Deploying Red Hat Enterprise Linux VMs<a class="headerlink" href="#deploying-red-hat-enterprise-linux-vms" title="Permalink to this headline">¶</a></h1>
+<p>The qubinode-installer supports deploying Red Hat Enterprise Linux VMs.
+This gives you a quick way to spin up one or multiple VMs on KVM running
+RHEL.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Refer to the <a class="reference external" href="README.md">Getting Started Guide</a> to ensure your system
+is setup. There is also a dependancy on IdM as a dns server, refer to
+the <a class="reference external" href="idm.md">IdM install</a>.</p>
+<div class="section" id="deploying-a-rhel-vm">
+<h3>Deploying a RHEL VM<a class="headerlink" href="#deploying-a-rhel-vm" title="Permalink to this headline">¶</a></h3>
+<p>The RHEL release deployed will default to the release your system in
+running. You can deploy RHEL 8 or 7 by passing the varible <strong>release=&lt;7
+or &gt;</strong> to the installer <strong>-a</strong> argument. The <strong>-a</strong> agrument can be
+passed multiple times for set different vairables.</p>
+<p><strong>Install Options</strong></p>
+<ul class="simple">
+<li><p>name - pet name to give the VM</p></li>
+<li><p>size - the size VM to deploy</p></li>
+<li><p>release - the release of RHEL to deploy</p></li>
+<li><p>qty - the number of VMs to deploy</p></li>
+</ul>
+<p>The VM name is randomly generated when the <strong>name</strong> option is not
+specified. The naming convention is qbn-rhel-.</p>
+<ul class="simple">
+<li><p>Example: qbn-rhel8-1076</p></li>
+</ul>
+<p><strong>VM sizes available</strong></p>
+<table><tr><td></td><td><p>Small</p>
+</td><td><p>Medium</p>
+</td><td><p>Large</p>
+</td></tr><tr><td><p>vCPU</p>
+</td><td><p>1</p>
+</td><td><p>2</p>
+</td><td><p>4</p>
+</td></tr><tr><td><p>Memory</p>
+</td><td><p>800Mib</p>
+</td><td><p>2Gib</p>
+</td><td><p>8Gib</p>
+</td></tr><tr><td><p>Disk</p>
+</td><td><p>10Gib</p>
+</td><td><p>60Gib</p>
+</td><td><p>120Gib</p>
+</td></tr></table><p><strong>Deploying a RHEL 7 VM</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p rhel
+</pre></div>
+</div>
+<p><strong>Deploying a RHEL 8 VM</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p rhel -a release=8
+</pre></div>
+</div>
+<p><strong>Deploying a large VM</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p rhel -a release=8 -a size=large
+</pre></div>
+</div>
+<p><strong>Deploying 4 medium size RHEL 7 VMs</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p rhel -a release=7 -a size=medium -a qty=4
+</pre></div>
+</div>
+<p><strong>Deploying 6 small size RHEL 8 VMs named webserver</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p rhel -a release=8 -a qty=4 -a name=webserver
+</pre></div>
+</div>
+<p><strong>Deleting a VM</strong> Deleting a VM requires the name of the VM with the
+<strong>-d</strong> argument.</p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p rhel -a name=qbn-rhel8-1076 -d
+</pre></div>
+</div>
+<p><strong>Stopping/Starting a VM</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span># Stop
+./qubinode-installer -p rhel -a name=qbn-rhel8-1076 -m stop
+
+# Start
+./qubinode-installer -p rhel -a name=qbn-rhel8-1076 -m start
+</pre></div>
+</div>
+<p><strong>Get VM status</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p rhel -a name=qbn-rhel8-1076 -m status
+</pre></div>
+</div>
+<p><strong>List all RHEL VMs</strong></p>
+<div class="highlight-=shell notranslate"><div class="highlight"><pre><span></span>./qubinode-installer -p rhel -m list
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="rh-workshops.html" class="btn btn-neutral float-right" title="Red Hat Workshops, but make it spicy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="releases.html" class="btn btn-neutral float-left" title="Qubinode Release history" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
