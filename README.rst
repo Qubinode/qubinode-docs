@@ -29,7 +29,7 @@ Notable files and directories
 
 Building Qubionde web page
 --------------------------
-..highlight:: python
+.. highlight:: python
 
 1. Under the docsource directory:
 ::
