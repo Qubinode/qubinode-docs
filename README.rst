@@ -41,7 +41,7 @@ Building Qubionde web page
    open ../docs/index.html
    
    
-3. To convert .md files to .rst::
+3. To convert .md files to .rst:
       pandoc example.md --from markdown --to rst -s -o example.rst
    .. code-block:: bash
    
