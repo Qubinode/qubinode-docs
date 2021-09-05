@@ -43,7 +43,7 @@ wired network, you would need to setup static routes. Bridging a
 wireless network is the easiest way to drop the qubinode into any
 network.
 
-.. figure:: img/QubinodeHardware.jpeg
+.. figure:: documents/img/QubinodeHardware.jpeg
    :alt: Example Router Usage
 
    Example Router Usage
