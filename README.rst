@@ -3,20 +3,17 @@ The Qubinode Project
 ********************
 
 The Qubinode documentation page uses sphinx_rtd_theme to create a web browser for the `Qubinode <http://qubinode.io>`__  project.
-.. _Qubinode: 
 
 Building the Qubinode documentation page
 =========================================
 
 Required applications to build and configure qubinode documentation
 --------------------------------------------------------------------
-+-----------------------------+------------------------------------+
-| applications                |  web links                        |
-+=============================+====================================+
-| pandoc                      | _https://pandoc.org/               |
-+-----------------------------+------------------------------------+
-| sphinx_rtd_theme            | _https://sphinx-rtd-theme.readthedocs.io  |
-+-----------------------------+-------------------------------------------+
+==============        ==========
+applications           web links                        
+=============         ==========
+pandoc                _https://pandoc.org/ 
+sphinx_rtd_theme       https://sphinx-rtd-theme.readthedocs.io 
 
 Notable files and directories
 ------------------------------
