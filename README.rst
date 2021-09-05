@@ -10,12 +10,13 @@ Building the Qubinode documentation page
 Required applications to build and configure qubinode documentation
 --------------------------------------------------------------------
 
-================       ========================================
-applications           web links                        
-================       ========================================
-pandoc                 `https://pandoc.org/`
-sphinx_rtd_theme       `https://sphinx-rtd-theme.readthedocs.io` 
-================       =========================================
++------------------+-------------------------------------------+
+| applications     | web links                                 |
++------------------+-------------------------------------------+
+| pandoc           | `https://pandoc.org`                      |
++------------------+-------------------------------------------+
+| sphinx_rtd_theme | `https://sphinx-rtd-theme.readthedocs.io` |
++------------------+-------------------------------------------+
 
 Notable files and directories
 ------------------------------
@@ -24,10 +25,3 @@ Notable files and directories
 
 When you run a build under the docsource directory, all the need artifacts for the web page is copied over to the docs directory
   
-+------------------+-------------------------------------------+
-| applications     | web links                                 |
-+------------------+-------------------------------------------+
-| pandoc           | `https://pandoc.org/`                     |
-+------------------+-------------------------------------------+
-| sphinx_rtd_theme | `https://sphinx-rtd-theme.readthedocs.io` |
-+------------------+-------------------------------------------+
