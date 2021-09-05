@@ -30,14 +30,17 @@ Notable files and directories
 Building Qubionde web page
 --------------------------
 
-1. Under the docsource directory:
-   ..highlight:: bash
-   make github
+1. Under the docsource directory::
+      make github
+   .. code-block:: bash
+   
 
-2. Test the build by running:
-   ..highlight:: bash
-   open ../docs/index.html
+2. Test the build by running::
+      open ../docs/index.html
+   .. code-block:: bash
+   
 
-3. To convert .md files to .rst:
-   ..highlight:: bash
-   pandoc example.md --from markdown --to rst -s -o example.rst
+3. To convert .md files to .rst::
+      pandoc example.md --from markdown --to rst -s -o example.rst
+   .. code-block:: bash
+   
