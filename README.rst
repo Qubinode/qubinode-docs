@@ -12,7 +12,7 @@ Required applications to build and configure qubinode documentation
 
 +------------------+-------------------------------------------+
 | applications     | web links                                 |
-+------------------+-------------------------------------------+
++==================+===========================================+
 | pandoc           | `https://pandoc.org`                      |
 +------------------+-------------------------------------------+
 | sphinx_rtd_theme | `https://sphinx-rtd-theme.readthedocs.io` |
