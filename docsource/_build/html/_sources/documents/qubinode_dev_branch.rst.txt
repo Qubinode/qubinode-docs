@@ -1,4 +1,4 @@
-How to use the Qubinode dev branch
+Using Dev branch to test new code
 ==================================
 
 If you download the installer zip, you can do the following.

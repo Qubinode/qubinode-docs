@@ -1,20 +1,24 @@
+OpenShift Container Platform Workshop
+=====================================
+
 Jig - Workshop Service Worker
-=============================
+-----------------------------
 
 This is a PHP application built to provide advanced functionality to Red
-Hat workshops. `Click here to
+Hat workshops. 
+`Click here to
 contribute <https://github.com/kenmoini/jig>`__
 
 Qubinode Requirements
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 -  Local storage with at 10Gigs os storage
    ``this can be changed if you would like``
 
-Install kustomize
-~~~~~~~~~~~~~~~~~
+Qubinode JIG installation steps
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`kustomize <https://kubernetes-sigs.github.io/kustomize/installation/>`__
+1. Install kustomize `kustomize <https://kubernetes-sigs.github.io/kustomize/installation/>`__
 
 .. code:: bash
 
@@ -22,55 +26,50 @@ Install kustomize
    kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
    $ sudo mv kustomize /usr/local/bin/
 
-Clone repo
-~~~~~~~~~~
+2. Clone the jig repo
 
 ::
 
-   git clone https://github.com/kenmoini/jig.git
+   git clone https://github.com/kenmoini/jig.git\
 
-cd into jig folder
-~~~~~~~~~~~~~~~~~~
+3. cd into jig folder
 
 ::
 
    cd jig
 
-Deploy to OpenShift using kustomize
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Create jig-workshop-worker project**
+4. Deploy to OpenShift using kustomize
 
 .. code:: bash
 
    oc new-project  jig-workshop-worker
 
-**Deploy mysql database**
+5. Deploy mysql database
 
 .. code:: bash
 
    oc process -f deploy/overlay/openshift/mysql-template.yaml  --param=VOLUME_CAPACITY=10Gi | oc create -f -  -n jig-workshop-worker
 
-| **Optional update patch-env.yaml**
+6. **Optional** update patch-env.yaml
 | *This will update the configmap for your deployment*
 
 ::
 
    vim deploy/overlay/openshift/patch-env.yaml
 
-**Validate Configs**
+7. Validate Configs
 
 .. code:: bash
 
    kustomize build deploy/overlay/openshift/ | less
 
-**Deploy application**
+8. Deploy application
 
 .. code:: bash
 
    kustomize build deploy/overlay/openshift/ | oc create -f -
 
-**Get admin password**
+9. Get admin password
 
 .. code:: bash
 
@@ -78,7 +77,10 @@ Deploy to OpenShift using kustomize
 
 **Admin username** \* ``admin@admin.com``
 
-**To delete deployment**
+Delete JIG project
+^^^^^^^^^^^^^^^^^^
+
+1. To delete deployment
 
 .. code:: bash
 

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>This guide will explain how to create a bootable usb. &mdash; Qubinode 2.4.5 documentation</title>
+  <title>Imaging Qubinode using a usb drive &mdash; Qubinode 2.4.5 documentation</title>
   
 
   
@@ -42,9 +42,7 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="How to use the Qubinode dev branch" href="qubinode_dev_branch.html" />
-    <link rel="prev" title="LDAP OpenShift configuration" href="openshift_ldap_config.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,46 +91,33 @@
             
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_menu_option.html">Qubinode-installer Menu Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">This guide will explain how to create a bootable usb.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#option-1-generic-rhel-7-bootable-usb">Option 1 Generic RHEL 7 bootable usb</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#in-linux-terminal">In Linux terminal</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#making-usb-media-on-windows">Making USB Media on Windows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-rhel-from-generic-usb">Install RHEL from Generic USB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#may-want-to-install-the-following-tools-before-deployment">May want to install the following tools before deployment</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#option-2-qubinode-usb">Option 2 Qubinode usb</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#qubinode-usb">Qubinode USB</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig_demo.html">OpenShift Container Platform Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant_demo.html">Home Assistant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">Using Dev branch to test new code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription_pool_message.html">Common Issue: Subscription not available</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
 </ul>
 
@@ -182,7 +167,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>This guide will explain how to create a bootable usb.</li>
+      <li>Imaging Qubinode using a usb drive</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,8 +186,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="this-guide-will-explain-how-to-create-a-bootable-usb">
-<h1>This guide will explain how to create a bootable usb.<a class="headerlink" href="#this-guide-will-explain-how-to-create-a-bootable-usb" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="imaging-qubinode-using-a-usb-drive">
+<h1>Imaging Qubinode using a usb drive<a class="headerlink" href="#imaging-qubinode-using-a-usb-drive" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="option-1-generic-rhel-7-bootable-usb">
 <h2>Option 1 Generic RHEL 7 bootable usb<a class="headerlink" href="#option-1-generic-rhel-7-bootable-usb" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="in-linux-terminal">
@@ -269,10 +254,6 @@ scripts and qcow images. This currently works with RHEL 7.7.</p></li>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="qubinode_dev_branch.html" class="btn btn-neutral float-right" title="How to use the Qubinode dev branch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="openshift_ldap_config.html" class="btn btn-neutral float-left" title="LDAP OpenShift configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

@@ -8,7 +8,7 @@ RHEL.
 Prerequisites
 -------------
 
-Refer to the `Getting Started Guide <README.md>`__ to ensure your system
+Refer to the `Getting Started Guide <qubinod_getting_started.rst>`__ to ensure your system
 is setup. There is also a dependancy on IdM as a dns server, refer to
 the `IdM install <idm.md>`__.
 
@@ -291,3 +291,4 @@ Disk
 .. code:: =shell
 
    ./qubinode-installer -p rhel -m list
+
