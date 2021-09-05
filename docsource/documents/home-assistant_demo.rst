@@ -14,13 +14,13 @@ Prerequises
 -  A running openshift cluster
 -  OpenShift admin access
 
-**Create Project**
+1. Create Project
 
 ::
 
    $ oc new-project home-assistant
 
-**Create persistent volume claim yaml file**
+2. Create persistent volume claim yaml file
 
 ::
 
@@ -38,19 +38,19 @@ Prerequises
        requests:
          storage: 1Gi
 
-**Create the claim**
+3. Create the claim
 
 ::
 
    $ oc create -f home-assistant-pvc.yml
 
-**Give root privlages to container**
+4. Give root privileges to home assitant container
 
 ::
 
    $  oc adm policy add-scc-to-user anyuid -z default
 
-**Create home assistant deployment yaml**
+5. Create home assistant deployment yaml
 
 ::
 
@@ -204,7 +204,7 @@ Prerequises
        weight: 100
      wildcardPolicy: None
 
-**Change the host to your domain**
+6. Change the host to your domain
 
 ::
 
@@ -218,25 +218,25 @@ Prerequises
        targetPort: 8123-tcp
      wildcardPolicy: None
 
-**Create home assistant deployment**
+7. Create home assistant deployment
 
 ::
 
    $ oc create -f home-assistant-deployment.yaml
 
-**get deployment status**
+8. Get deployment status
 
 ::
 
    $ oc get pods
 
-**get route**
+9. Get route
 
 ::
 
    $ oc get route 
 
-Have Fun :)
+10. Have Fun :)
 
 Link
 ~~~~

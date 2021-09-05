@@ -1,3 +1,6 @@
+Common Issue: Subscription not available
+=========================================
+
 No available subscription pools were found matching the expression:
 
 Red Hat OpenShift Container Platform

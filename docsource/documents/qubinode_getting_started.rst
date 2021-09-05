@@ -1,15 +1,7 @@
-Qubinode Overview
-=================
-
-A Qubinode is a bare metal node that uses the qubinode-installer to
-configure RHEL to function as a KVM host. The qubinode-installer can
-then be used to deploy additional Red Hat products as VMs running atop
-the Qubinode.
-
 Getting Started
 ===============
 
-The first step is to get RHEL installed on your hardware
+The first step to getting started with Qubinode is to get Red Hat Enterprise Linux(RHEL) installed on your hardware
 
 Get Subscriptions
 -----------------
@@ -17,17 +9,17 @@ Get Subscriptions
 -  Get your `No-cost developer
    subscription <https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux/>`__
    for RHEL.
+
 -  Get a Red Hat OpenShift Container Platform (OCP) `60-day evalution
    subscription <https://www.redhat.com/en/technologies/cloud-computing/openshift/try-it?intcmp=701f2000000RQykAAG&extIdCarryOver=true&sc_cid=701f2000001OH74AAG>`__.
+
 
 Install Red Hat Enterprise Linux
 --------------------------------
 
-A bare metal system running Red Hat Enterprise Linux 8. Follow the `RHEL
-Installation
-Walkthrough <https://developers.redhat.com/products/rhel/hello-world#fndtn-rhel>`__
-to get RHEL installed on your hardware. When installing RHEL, for the
-software selection, **Base Environment** choose one of the following:
+A bare metal system running Red Hat Enterprise Linux 8. Follow the `RHEL Installation Walkthrough <https://developers.redhat.com/products/rhel/hello-world#fndtn-rhel>`__ 
+
+* To get RHEL installed on your hardware. When installing RHEL, for the software selection, **Base Environment** choose one of the following:
 
 1. Virtualization Host
 2. Server with GUI
@@ -191,7 +183,7 @@ list the qcow images below or later versions:
 Install DNS server
 ------------------
 
--  `Red Hat Identity Managment <qubinode/idm.md>`__
+-  `Red Hat Identity Managment <qubinode/idm.rst>`__
 
 At this point you refer to the
 `documentation <#Currently-Supported-Products>`__ for the product you
@@ -201,14 +193,14 @@ Currently Supported Products
 ----------------------------
 
 -  `Red Hat OpenShift
-   Platform <qubinode/openshift4_installation_steps.md>`__
+   Platform <qubinode/openshift4_installation_steps.rst>`__
 -  `OKD - The Community Distribution of
-   Kubernetes <qubinode/okd4_installation_steps.md>`__
--  `Red Hat Identity Managment <qubinode/idm.md>`__
--  `Red Hat Enterprise Linux <qubinode/rhel_vms.md>`__
+   Kubernetes <qubinode/okd4_installation_steps.rst>`__
+-  `Red Hat Identity Managment <qubinode/idm.rst>`__
+-  `Red Hat Enterprise Linux <qubinode/rhel_vms.rst>`__
 
 Products in Development
 -----------------------
 
--  `Ansible Automation Platform <qubinode/ansible_platform.md>`__
--  `Red Hat Satellite <qubinode/qubinode_satellite_install.md>`__
+-  `Ansible Automation Platform <qubinode/ansible_platform.rst>`__
+-  `Red Hat Satellite <qubinode/qubinode_satellite_install.rst>`__

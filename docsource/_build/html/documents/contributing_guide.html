@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Qubinode Git branching strategy &mdash; Qubinode 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Qubinode for Beginners" href="beginners.html" />
+    <link rel="prev" title="Contributor Covenant Code of Conduct" href="code_of_conduct.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qubinode
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Qubinode Git branching strategy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#branching-and-releasing">Branching and releasing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#qubinode-project-branches">Qubinode project Branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qubinode-supporting-branches">Qubinode supporting branches</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scenerios">Scenerios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-new-feature">Adding a new feature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#switch-to-the-develop-branch">switch to the develop branch:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fetch-the-latest-code-from-the-develop-branch-code">Fetch the latest code from the develop branch code:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-new-feature-branch-using-the-nomenclature-feature">Create new feature branch using the nomenclature feature-</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#after-coding-pushing-new-code-to-feature-branch-checkout-the-develop-branch">After coding, pushing new code to feature branch, checkout the develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge-the-new-feature-to-the-develop-branch">Merge the new feature to the develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-the-feature-branch">Delete the feature branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#push-changes-to-the-develop-branch">Push changes to the develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submit-a-merge-request-to-the-qubinode-repository">Submit a merge request to the Qubinode repository</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hotfixes">HotFixes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#switch-to-the-main-branch">switch to the main branch:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-new-hotfix-branch-using-the-nomenclature-hotfix">Create new hotfix branch using the nomenclature hotfix-</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#after-coding-pushing-new-code-to-feature-branch-checkout-the-main-branch">After coding, pushing new code to feature branch, checkout the main branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge-the-new-hotfix-to-the-qubinode-main-branch">Merge the new hotfix to the Qubinode main branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tag-the-master-branch-with-a-new-minor-release-version-if-the-current-version-is-2-1">Tag the Master branch with a new minor release version(if the current version is 2.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#include-bugfix-to-the-develop-branch-check-out-the-develop-branch">Include bugfix to the develop branch, check out the develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge-the-new-hotfix-to-the-qubinode-develop-main-branch">Merge the new hotfix to the Qubinode develop main branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-the-hotfix-branch">Delete the hotfix branch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pushing-out-a-new-release">Pushing out a new release</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-new-release-branch-using-the-fruit-nomenclature">Create new release branch using the fruit nomenclature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tag-the-release-branch">Tag the release branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commit-all-changes-to-release-branch">Commit all changes to release branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge-all-changes-to-main-branch-check-out-the-main-branch">Merge all changes to main branch, check out the main branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge-changes-to-the-main-branch">Merge changes to the main branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tag-the-new-release-on-the-main-branch">Tag the new release on the main branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-the-develop-branch-with-the-new-relase-checkout-the-develop-branch">Update the develop branch with the new relase, checkout the develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge-changes-to-develop-branch">Merge changes to develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-the-release-branch">Delete the release branch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig_demo.html">OpenShift Container Platform Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant_demo.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">Using Dev branch to test new code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription_pool_message.html">Common Issue: Subscription not available</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qubinode</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Qubinode Git branching strategy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/contributing_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qubinode-git-branching-strategy">
+<h1>Qubinode Git branching strategy<a class="headerlink" href="#qubinode-git-branching-strategy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p><em>This guide contains all the information needed to become a contributor
+on the Qubinode project#### Please follow our git branching model so
+that everyone will have a pleasant experience contributing to this
+project.</em></p>
+</div>
+<div class="section" id="branching-and-releasing">
+<h2>Branching and releasing<a class="headerlink" href="#branching-and-releasing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="qubinode-project-branches">
+<h3>Qubinode project Branches<a class="headerlink" href="#qubinode-project-branches" title="Permalink to this headline">¶</a></h3>
+<p>The following are the only branches that will exists on the official
+Qubinode project (<a class="reference external" href="https://github.com/Qubinode">https://github.com/Qubinode</a>):</p>
+<ul class="simple">
+<li><p><em>main</em> holds the latest production ready code</p></li>
+<li><p>Rules: ** Should be the same for every Git user</p></li>
+<li><p><em>develop</em> holds latest changes for next release</p></li>
+<li><p>Rules: ** Merge to <em>main</em> branch when all codes are stable ** Tag
+<em>main</em> branch with new release number after merging from <em>develop</em>
+branch</p></li>
+</ul>
+</div>
+<div class="section" id="qubinode-supporting-branches">
+<h3>Qubinode supporting branches<a class="headerlink" href="#qubinode-supporting-branches" title="Permalink to this headline">¶</a></h3>
+<p>The supporting branches will only exist on the developer’s
+repository#### Once the code is ready to be pushed to either the main or
+develop branch#### Once the merge request is accepted, the developer can
+delete the supporting branch.</p>
+<ul class="simple">
+<li><p><em>feature</em> holds code for developed new features that will be merged
+in the next or future Qubinode release</p></li>
+<li><p>Rules: ** May branch off from the <em>develop</em> branch ** Must merge
+back to the <em>develop</em> branch ** Exists on developer’s repository
+only ** Discarded once all code are merged to <em>develop</em> bramch</p></li>
+<li><p><em>release</em> support preparation of a new production release#### Use for
+minor changes or bugfixes</p></li>
+<li><p>Rules: ** May branch off from the <em>develop</em> branch ** Must merge
+back to the <em>develop</em> and <em>main</em> branch ** Exists on developer’s
+repository only ** Only core developers can create and push release
+branch</p></li>
+<li><p><em>hotfix</em> Use to push a fix for an error in the <em>main</em> branch</p></li>
+<li><p>Rules: ** May branch off from <em>main</em> branch ** Must be merged
+back into <em>main</em> and <em>develop</em> branch</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="scenerios">
+<h2>Scenerios<a class="headerlink" href="#scenerios" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="adding-a-new-feature">
+<h3>Adding a new feature<a class="headerlink" href="#adding-a-new-feature" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="switch-to-the-develop-branch">
+<h4>switch to the develop branch:<a class="headerlink" href="#switch-to-the-develop-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetch-the-latest-code-from-the-develop-branch-code">
+<h4>Fetch the latest code from the develop branch code:<a class="headerlink" href="#fetch-the-latest-code-from-the-develop-branch-code" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-new-feature-branch-using-the-nomenclature-feature">
+<h4>Create new feature branch using the nomenclature feature-<a class="headerlink" href="#create-new-feature-branch-using-the-nomenclature-feature" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b feature-&lt;issue number&gt; develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="after-coding-pushing-new-code-to-feature-branch-checkout-the-develop-branch">
+<h4>After coding, pushing new code to feature branch, checkout the develop branch<a class="headerlink" href="#after-coding-pushing-new-code-to-feature-branch-checkout-the-develop-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="merge-the-new-feature-to-the-develop-branch">
+<h4>Merge the new feature to the develop branch<a class="headerlink" href="#merge-the-new-feature-to-the-develop-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git merge --no-ff feature-&lt;issue number&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-the-feature-branch">
+<h4>Delete the feature branch<a class="headerlink" href="#delete-the-feature-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -d feature-&lt;issue number&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="push-changes-to-the-develop-branch">
+<h4>Push changes to the develop branch<a class="headerlink" href="#push-changes-to-the-develop-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="submit-a-merge-request-to-the-qubinode-repository">
+<h4>Submit a merge request to the Qubinode repository<a class="headerlink" href="#submit-a-merge-request-to-the-qubinode-repository" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="hotfixes">
+<h3>HotFixes<a class="headerlink" href="#hotfixes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="switch-to-the-main-branch">
+<h4>switch to the main branch:<a class="headerlink" href="#switch-to-the-main-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-new-hotfix-branch-using-the-nomenclature-hotfix">
+<h4>Create new hotfix branch using the nomenclature hotfix-<a class="headerlink" href="#create-new-hotfix-branch-using-the-nomenclature-hotfix" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b hotfix-&lt;issue number&gt; main
+</pre></div>
+</div>
+</div>
+<div class="section" id="after-coding-pushing-new-code-to-feature-branch-checkout-the-main-branch">
+<h4>After coding, pushing new code to feature branch, checkout the main branch<a class="headerlink" href="#after-coding-pushing-new-code-to-feature-branch-checkout-the-main-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
+</pre></div>
+</div>
+</div>
+<div class="section" id="merge-the-new-hotfix-to-the-qubinode-main-branch">
+<h4>Merge the new hotfix to the Qubinode main branch<a class="headerlink" href="#merge-the-new-hotfix-to-the-qubinode-main-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git merge --no-ff hotfix-&lt;issue number&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="tag-the-master-branch-with-a-new-minor-release-version-if-the-current-version-is-2-1">
+<h4>Tag the Master branch with a new minor release version(if the current version is 2.1)<a class="headerlink" href="#tag-the-master-branch-with-a-new-minor-release-version-if-the-current-version-is-2-1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git tag -a &lt;release minor release number&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="include-bugfix-to-the-develop-branch-check-out-the-develop-branch">
+<h4>Include bugfix to the develop branch, check out the develop branch<a class="headerlink" href="#include-bugfix-to-the-develop-branch-check-out-the-develop-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="merge-the-new-hotfix-to-the-qubinode-develop-main-branch">
+<h4>Merge the new hotfix to the Qubinode develop main branch<a class="headerlink" href="#merge-the-new-hotfix-to-the-qubinode-develop-main-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git merge --no-ff hotfix-&lt;issue number&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-the-hotfix-branch">
+<h4>Delete the hotfix branch<a class="headerlink" href="#delete-the-hotfix-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -d hotfix-&lt;issue number&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pushing-out-a-new-release">
+<h3>Pushing out a new release<a class="headerlink" href="#pushing-out-a-new-release" title="Permalink to this headline">¶</a></h3>
+<p>After coding all features, hotfixes, and meet the requirement for the
+next Qubinode release, we will create a release branch that’s tagged
+with a code name based on the next alphabetically available fruit (
+i.e#### apple, banana)</p>
+<div class="section" id="create-new-release-branch-using-the-fruit-nomenclature">
+<h4>Create new release branch using the fruit nomenclature<a class="headerlink" href="#create-new-release-branch-using-the-fruit-nomenclature" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b release-&lt;fruit nomenclature, i.e apple&gt; develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="tag-the-release-branch">
+<h4>Tag the release branch<a class="headerlink" href="#tag-the-release-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git tag -a &lt;fruit nomenclature, i.e apple&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="commit-all-changes-to-release-branch">
+<h4>Commit all changes to release branch<a class="headerlink" href="#commit-all-changes-to-release-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -a -m &quot;next qubinode release&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="merge-all-changes-to-main-branch-check-out-the-main-branch">
+<h4>Merge all changes to main branch, check out the main branch<a class="headerlink" href="#merge-all-changes-to-main-branch-check-out-the-main-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
+</pre></div>
+</div>
+</div>
+<div class="section" id="merge-changes-to-the-main-branch">
+<h4>Merge changes to the main branch<a class="headerlink" href="#merge-changes-to-the-main-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git merge --no-ff release-&lt;fruit nomenclature, i.e apple&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="tag-the-new-release-on-the-main-branch">
+<h4>Tag the new release on the main branch<a class="headerlink" href="#tag-the-new-release-on-the-main-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git tag -a &lt;next release version i.e 2.2&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-the-develop-branch-with-the-new-relase-checkout-the-develop-branch">
+<h4>Update the develop branch with the new relase, checkout the develop branch<a class="headerlink" href="#update-the-develop-branch-with-the-new-relase-checkout-the-develop-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="merge-changes-to-develop-branch">
+<h4>Merge changes to develop branch<a class="headerlink" href="#merge-changes-to-develop-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git merge --no-ff &lt;next release version i.e 2.2&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-the-release-branch">
+<h4>Delete the release branch<a class="headerlink" href="#delete-the-release-branch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -d release-&lt;fruit nomenclature, i.e apple&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="beginners.html" class="btn btn-neutral float-right" title="Qubinode for Beginners" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="code_of_conduct.html" class="btn btn-neutral float-left" title="Contributor Covenant Code of Conduct" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Toshin, Rodrique, Joey, Abner.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

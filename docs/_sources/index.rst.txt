@@ -12,30 +12,27 @@ Welcome to Qubinode's documentation!
 
    documents/introduction
    documents/hardwareguide
-   documents/ansible_platform
-   documents/beginners
-   documents/CNAME
-   documents/CODE_OF_CONDUCT
-   documents/communication
-   documents/CONTRIBUTING
-   documents/hardware_test
-   documents/home-assistant
    documents/hw_testing_validation
-   documents/idm
-   documents/jig
-   documents/ocp4_cluster_ops
-   documents/ocp4_custom_deploy
-   documents/ocp4_standard_deploy
-   documents/openshift4_installation_steps
-   documents/openshift4_workloads
-   documents/openshift_ldap_config
-   documents/qubinode_bootable_usb
-   documents/qubinode_dev_branch
-   documents/qubinode_satellite_install
    documents/releases
-   documents/rhel_vms
+   documents/communication
+   documents/code_of_conduct
+   documents/contributing_guide
+   documents/beginners
+   documents/qubinode_installer
+   documents/qubinode_menu_option
+   documents/idm
+   documents/openshift4_installation_steps
+   documents/ocp4_standard_deploy
+   documents/ocp4_custom_deploy
+   documents/openshift_ldap_config
+   documents/ocp4_cluster_ops
+   documents/openshift4_workloads
+   documents/jig_demo.rst
+   documents/home-assistant_demo
    documents/rh-workshops
+   documents/ansible_platform
+   documents/qubinode_satellite_install
+   documents/qubinode_dev_branch
    documents/subscription_pool_message
    documents/troubleshooting-monitoring
-   documents/X11SDV-8C-TP8F
 

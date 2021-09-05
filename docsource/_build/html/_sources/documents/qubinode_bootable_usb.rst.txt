@@ -1,4 +1,4 @@
-This guide will explain how to create a bootable usb.
+Imaging Qubinode using a usb drive
 =====================================================
 
 Option 1 Generic RHEL 7 bootable usb
