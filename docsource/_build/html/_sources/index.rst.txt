@@ -10,13 +10,14 @@ Welcome to Qubinode's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   documents/introduction
+   documents/hardwareguide
    documents/ansible_platform
    documents/beginners
    documents/CNAME
    documents/CODE_OF_CONDUCT
    documents/communication
    documents/CONTRIBUTING
-   documents/hardwareguide
    documents/hardware_test
    documents/home-assistant
    documents/hw_testing_validation
