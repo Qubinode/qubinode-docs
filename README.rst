@@ -29,19 +29,18 @@ Notable files and directories
 
 Building Qubionde web page
 --------------------------
+..highlight:: python
 
 1. Under the docsource directory:
-   .. code-block:: bash
+::
    make github
 
-   
-
 2. Test the build by running:
-   .. code-block:: bash
-   open ../docs/index.html
-   
+::
+   open ../docs/index.html   
    
 3. To convert .md files to .rst:
-      pandoc example.md --from markdown --to rst -s -o example.rst
-   .. code-block:: bash
+::
+   pandoc example.md --from markdown --to rst -s -o example.rst
+
    
