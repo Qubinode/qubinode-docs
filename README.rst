@@ -17,11 +17,27 @@ Required applications to build and configure qubinode documentation
 +------------------+-------------------------------------------+
 | sphinx_rtd_theme | `https://sphinx-rtd-theme.readthedocs.io` |
 +------------------+-------------------------------------------+
+| reference        | `https://purduecam2project.github.io/CAM2WebUI/basicSetup/sphinx.html` |
++------------------+-------------------------------------------+
 
 Notable files and directories
 ------------------------------
  * The docsource folder is the build directory 
  * The docs folder is the publish directory 
+ * the conf.py is the configuration file for sphinx
+ * the MAKE file is the build file for sphinx 
 
-When you run a build under the docsource directory, all the need artifacts for the web page is copied over to the docs directory
-  
+Building Qubionde web page
+--------------------------
+
+1. Under the docsource directory:
+   ..highlight:: bash
+   make github
+
+2. Test the build by running:
+   ..highlight:: bash
+   open ../docs/index.html
+
+3. To convert .md files to .rst:
+   ..highlight:: bash
+   pandoc example.md --from markdown --to rst -s -o example.rst
