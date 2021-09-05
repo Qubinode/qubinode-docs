@@ -9,12 +9,12 @@ Building the Qubinode documentation page
 
 Required applications to build and configure qubinode documentation
 --------------------------------------------------------------------
-==============        ==========
+=============         ==========
 applications           web links                        
 =============         ==========
 pandoc                 https://pandoc.org/ 
 sphinx_rtd_theme       https://sphinx-rtd-theme.readthedocs.io 
-
+================       ========================================
 Notable files and directories
 ------------------------------
  * The docsource folder is the build directory 
