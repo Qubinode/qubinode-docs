@@ -14,7 +14,11 @@ Qubinode was designed by Red Hatters to help developers, ISV's, System Integrato
 
 *************************
 Key Features And Benefits
+<<<<<<< HEAD
 **************************
+=======
+*************************
+>>>>>>> docs-config
 
 
 Small Form Factor

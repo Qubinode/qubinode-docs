@@ -15,7 +15,7 @@ minimum requirements for OCP4. However, the recommended should work for
 both OCP3 and OCP4.
 
 =================== =========== ===============
-\                   **Minimum** **Recommended**
+                    **Minimum** **Recommended**
 =================== =========== ===============
 **CPU**             6 Core      8 core or more
 **Memory**          64 GB       128 or more
@@ -43,7 +43,7 @@ wired network, you would need to setup static routes. Bridging a
 wireless network is the easiest way to drop the qubinode into any
 network.
 
-.. figure:: /qubinode-docs/_images/QubinodeHardware.jpeg
+.. figure:: documents/img/QubinodeHardware.jpeg
    :alt: Example Router Usage
 
    Example Router Usage
