@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Qubinode-installer &mdash; Qubinode 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Qubinode-installer Menu Options" href="qubinode_menu_option.html" />
+    <link rel="prev" title="Qubinode for Beginners" href="beginners.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qubinode
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-subscriptions">Get Subscriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-red-hat-enterprise-linux">Install Red Hat Enterprise Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-qubinode-installer">The qubinode-installer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qubinode-setup">Qubinode Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploy-a-red-hat-product">Deploy a Red Hat Product</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-the-rhel-7-or-8-qcow-image">Getting the RHEL 7 or 8 Qcow Image</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-dns-server">Install DNS server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#currently-supported-products">Currently Supported Products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#products-in-development">Products in Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_menu_option.html">Qubinode-installer Menu Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig_demo.html">OpenShift Container Platform Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant_demo.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">Using Dev branch to test new code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription_pool_message.html">Common Issue: Subscription not available</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qubinode</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Qubinode-installer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/qubinode_installer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qubinode-installer">
+<h1>Qubinode-installer<a class="headerlink" href="#qubinode-installer" title="Permalink to this headline">¶</a></h1>
+<p>A Qubinode is a bare metal node that uses the qubinode-installer to
+configure RHEL to function as a KVM host. The qubinode-installer can
+then be used to deploy additional Red Hat products as VMs running atop
+the Qubinode.</p>
+</div>
+<div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>The first step is to get RHEL installed on your hardware</p>
+<div class="section" id="get-subscriptions">
+<h2>Get Subscriptions<a class="headerlink" href="#get-subscriptions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Get your <a class="reference external" href="https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux/">No-cost developer
+subscription</a>
+for RHEL.</p></li>
+<li><p>Get a Red Hat OpenShift Container Platform (OCP) <a class="reference external" href="https://www.redhat.com/en/technologies/cloud-computing/openshift/try-it?intcmp=701f2000000RQykAAG&amp;extIdCarryOver=true&amp;sc_cid=701f2000001OH74AAG">60-day evalution
+subscription</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="install-red-hat-enterprise-linux">
+<h2>Install Red Hat Enterprise Linux<a class="headerlink" href="#install-red-hat-enterprise-linux" title="Permalink to this headline">¶</a></h2>
+<p>A bare metal system running Red Hat Enterprise Linux 8. Follow the <a class="reference external" href="https://developers.redhat.com/products/rhel/hello-world#fndtn-rhel">RHEL
+Installation
+Walkthrough</a>
+to get RHEL installed on your hardware. When installing RHEL, for the
+software selection, <strong>Base Environment</strong> choose one of the following:</p>
+<ol class="arabic simple">
+<li><p>Virtualization Host</p></li>
+<li><p>Server with GUI</p></li>
+</ol>
+<p>If you choose <strong>Server with GUI</strong>, make sure from the <strong>Add-ons for
+Selected Evironment</strong> you select the following:</p>
+<ul class="simple">
+<li><p>Virtualization Hypervisor</p></li>
+<li><p>Virtualization Tools</p></li>
+</ul>
+<p><strong>TIPS</strong> &gt; * If using the recommend storage of one ssd and one NVME,
+install RHEL on the ssd, not the NVME. &gt; * The RHEL installer will
+delicate the majority of your storage to /home, you can choose <strong>“I will
+configure partitioning”</strong> to have control over this. &gt; * Set root
+password and create admin user with sudo privilege</p>
+<div class="section" id="the-qubinode-installer">
+<h3>The qubinode-installer<a class="headerlink" href="#the-qubinode-installer" title="Permalink to this headline">¶</a></h3>
+<p>Downlaod and extract the qubinode-installer as a non root user.</p>
+<div class="highlight-shell= notranslate"><div class="highlight"><pre><span></span>cd $HOME
+wget https://github.com/Qubinode/qubinode-installer/archive/master.zip
+unzip master.zip
+rm master.zip
+mv qubinode-installer-master qubinode-installer
+</pre></div>
+</div>
+</div>
+<div class="section" id="qubinode-setup">
+<h3>Qubinode Setup<a class="headerlink" href="#qubinode-setup" title="Permalink to this headline">¶</a></h3>
+<p>The below commands ensure your system is setup as a KVM host. The
+qubinode-installer needs to run as a regular user.</p>
+<ul class="simple">
+<li><p>setup - ensure your username is setup for sudoers</p></li>
+<li><p>rhsm - ensure your rhel system is registered to Red Hat</p></li>
+<li><p>ansible - ensure your rhel system is setup for to function as a
+ansible controller</p></li>
+<li><p>host - ensure your rhel system is setup as a KVM host</p></li>
+</ul>
+<blockquote>
+<div><p>Go <a class="reference external" href="qubinode/qubinode-menu-options.adoc">here</a> for additional
+qubinode options.</p>
+</div></blockquote>
+<p>Validate sudo user for admin</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo cat /etc/sudoers | grep admin
+admin ALL=(ALL) NOPASSWD: ALL
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/qubinode-installer
+./qubinode-installer -m setup
+./qubinode-installer -m rhsm
+./qubinode-installer -m ansible
+./qubinode-installer -m host
+</pre></div>
+</div>
+<p>At this point you should be able to acces the RHEL system via the
+cockpit web interface on:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">SERVER_IP</span><span class="p">:</span><span class="mi">9090</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="deploy-a-red-hat-product">
+<h2>Deploy a Red Hat Product<a class="headerlink" href="#deploy-a-red-hat-product" title="Permalink to this headline">¶</a></h2>
+<p>Most products depends on the latest rhel 7 or 8 qcow image. You can
+either manually download them or provide your RHSM api token and the
+installer will download these files for you.</p>
+<div class="section" id="getting-the-rhel-7-or-8-qcow-image">
+<h3>Getting the RHEL 7 or 8 Qcow Image<a class="headerlink" href="#getting-the-rhel-7-or-8-qcow-image" title="Permalink to this headline">¶</a></h3>
+<table><tr><td><p>Using Token</p>
+</td><td><p>Downloading</p>
+</td></tr><tr><td><p>Navigate to RHSM API to generate a token and save it as rhsm_token. This
+token will be used to download the rhel qcow image.</p>
+</td><td><p>From your web browser, navigate to Download Red Hat Enterprise Linux.
+Download the qcow image matching this checksum the below checksum.</p>
+</td></tr></table><p>Follow the same steps to get the RHEL 8 qcow image.</p>
+<p>If you are using tokens it should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* $HOME/qubinode-installer/rhsm_token
+</pre></div>
+</div>
+<p>If you downloaded the files instead, confirm that the project directory
+list the qcow images below or later versions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* $HOME/qubinode-installer/rhel-server-7.8-x86_64-kvm.qcow2
+* $HOME/qubinode-installer/rhel-8.3-update-2-x86_64-kvm.qcow2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="install-dns-server">
+<h2>Install DNS server<a class="headerlink" href="#install-dns-server" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="qubinode/idm.md">Red Hat Identity Managment</a></p></li>
+</ul>
+<p>At this point you refer to the
+<a class="reference external" href="#Currently-Supported-Products">documentation</a> for the product you
+want to install.</p>
+</div>
+<div class="section" id="currently-supported-products">
+<h2>Currently Supported Products<a class="headerlink" href="#currently-supported-products" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="qubinode/openshift4_installation_steps.md">Red Hat OpenShift
+Platform</a></p></li>
+<li><p><a class="reference external" href="qubinode/okd4_installation_steps.md">OKD - The Community Distribution of
+Kubernetes</a></p></li>
+<li><p><a class="reference external" href="qubinode/idm.md">Red Hat Identity Managment</a></p></li>
+<li><p><a class="reference external" href="qubinode/rhel_vms.md">Red Hat Enterprise Linux</a></p></li>
+</ul>
+</div>
+<div class="section" id="products-in-development">
+<h2>Products in Development<a class="headerlink" href="#products-in-development" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="qubinode/ansible_platform.md">Ansible Automation Platform</a></p></li>
+<li><p><a class="reference external" href="qubinode/qubinode_satellite_install.md">Red Hat Satellite</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="qubinode_menu_option.html" class="btn btn-neutral float-right" title="Qubinode-installer Menu Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="beginners.html" class="btn btn-neutral float-left" title="Qubinode for Beginners" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Toshin, Rodrique, Joey, Abner.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

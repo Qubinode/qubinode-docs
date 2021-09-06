@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Home Assistant &mdash; Qubinode 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Red Hat Workshops, but make it spicy" href="rh-workshops.html" />
+    <link rel="prev" title="OpenShift Container Platform Workshop" href="jig_demo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qubinode
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_menu_option.html">Qubinode-installer Menu Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig_demo.html">OpenShift Container Platform Workshop</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Home Assistant</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequises">Prerequises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#link">Link</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">Using Dev branch to test new code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription_pool_message.html">Common Issue: Subscription not available</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qubinode</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Home Assistant</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/home-assistant_demo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="home-assistant">
+<h1>Home Assistant<a class="headerlink" href="#home-assistant" title="Permalink to this headline">¶</a></h1>
+<p>This will deploy <a class="reference external" href="https://www.home-assistant.io/">home-assistant.io</a>
+on your machine.</p>
+<p>Open source home automation that puts local control and privacy first.
+Powered by a worldwide community of tinkerers and DIY enthusiasts.</p>
+<div class="section" id="prerequises">
+<h2>Prerequises<a class="headerlink" href="#prerequises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Persistent Volume claim</p></li>
+<li><p>A running openshift cluster</p></li>
+<li><p>OpenShift admin access</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Create Project</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ oc new-project home-assistant
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Create persistent volume claim yaml file</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi home-assistant-pvc.yml
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: home-assistant-mount
+  namespace: home-assistant
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Create the claim</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ oc create -f home-assistant-pvc.yml
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Give root privileges to home assitant container</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$  oc adm policy add-scc-to-user anyuid -z default
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Create home assistant deployment yaml</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi home-assistant-deployment.yaml
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  resourceVersion: &#39;461920&#39;
+  name: home-assistant
+  namespace: home-assistant
+  labels:
+    app: home-assistant
+    app.kubernetes.io/component: home-assistant
+    app.kubernetes.io/instance: home-assistant
+    app.kubernetes.io/part-of: home-assistant-app
+spec:
+  strategy:
+    type: Rolling
+    rollingParams:
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      timeoutSeconds: 600
+      maxUnavailable: 25%
+      maxSurge: 25%
+    resources: {}
+    activeDeadlineSeconds: 21600
+  triggers:
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - home-assistant
+        from:
+          kind: ImageStreamTag
+          namespace: home-assistant
+          name: &#39;home-assistant:stable&#39;
+        lastTriggeredImage: &gt;-
+          homeassistant/home-assistant@sha256:d8a9cfa40e380f616c87c974bbc03e921f85181b31afdf8e9802df5704dd057d
+    - type: ConfigChange
+  replicas: 1
+  revisionHistoryLimit: 10
+  test: false
+  selector:
+    app: home-assistant
+    deploymentconfig: home-assistant
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: home-assistant
+        deploymentconfig: home-assistant
+    spec:
+      volumes:
+        - name: mountpoint
+          persistentVolumeClaim:
+            claimName: home-assistant-mount
+      containers:
+        - name: home-assistant
+          image: &gt;-
+            homeassistant/home-assistant@sha256:d8a9cfa40e380f616c87c974bbc03e921f85181b31afdf8e9802df5704dd057d
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: mountpoint
+              mountPath: /config
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: home-assistant
+  namespace: home-assistant
+  labels:
+    app: home-assistant
+    app.kubernetes.io/component: home-assistant
+    app.kubernetes.io/instance: home-assistant
+    app.kubernetes.io/part-of: home-assistant-app
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: stable
+      annotations:
+        openshift.io/imported-from: &#39;homeassistant/home-assistant:stable&#39;
+      from:
+        kind: DockerImage
+        name: &#39;homeassistant/home-assistant:stable&#39;
+      importPolicy: {}
+      referencePolicy:
+        type: Source
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: home-assistant
+    app.kubernetes.io/component: home-assistant
+    app.kubernetes.io/instance: home-assistant
+    app.kubernetes.io/name: &quot;&quot;
+    app.kubernetes.io/part-of: home-assistant-app
+    app.openshift.io/runtime: &quot;&quot;
+    app.openshift.io/runtime-version: stable
+  name: home-assistant
+  namespace: home-assistant
+spec:
+  selector:
+    app: home-assistant
+  ports:
+    - name: 8123-tcp
+      port: 8123
+      protocol: TCP
+      targetPort: 8123
+      selector:
+        app: home-assistant
+        deploymentconfig: home-assistant
+sessionAffinity: None
+type: ClusterIP
+status:
+loadBalancer: {}
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: &quot;2020-04-24T00:07:32Z&quot;
+  labels:
+    app: home-assistant
+    app.kubernetes.io/component: home-assistant
+    app.kubernetes.io/instance: home-assistant
+    app.kubernetes.io/name: &quot;&quot;
+    app.kubernetes.io/part-of: home-assistant-app
+    app.openshift.io/runtime: &quot;&quot;
+    app.openshift.io/runtime-version: stable
+  name: home-assistant
+  namespace: home-assistant
+spec:
+  host: home-assistant-home-assistant.apps.qbn.cloud.PLEASECHANGEME.com
+  port:
+    targetPort: 8123-tcp
+  to:
+    kind: Service
+    name: home-assistant
+    weight: 100
+  wildcardPolicy: None
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Change the host to your domain</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span><span class="p">:</span>
+  <span class="n">host</span><span class="p">:</span> <span class="n">home</span><span class="o">-</span><span class="n">assistant</span><span class="o">-</span><span class="n">home</span><span class="o">-</span><span class="n">assistant</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">qbn</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">PLEASECHANGEME</span><span class="o">.</span><span class="n">com</span>
+  <span class="n">to</span><span class="p">:</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="n">Service</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">home</span><span class="o">-</span><span class="n">assistant</span>
+    <span class="n">weight</span><span class="p">:</span> <span class="mi">100</span>
+  <span class="n">port</span><span class="p">:</span>
+    <span class="n">targetPort</span><span class="p">:</span> <span class="mi">8123</span><span class="o">-</span><span class="n">tcp</span>
+  <span class="n">wildcardPolicy</span><span class="p">:</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Create home assistant deployment</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ oc create -f home-assistant-deployment.yaml
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Get deployment status</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ oc get pods
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Get route</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ oc get route
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>Have Fun :)</p></li>
+</ol>
+<div class="section" id="link">
+<h3>Link<a class="headerlink" href="#link" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.home-assistant.io/">https://www.home-assistant.io/</a></p></li>
+<li><p><a class="reference external" href="https://community.home-assistant.io/">Forum</a></p></li>
+<li><p><a class="reference external" href="https://discord.gg/c5DvZ4e">Discord Chat Server</a> for general Home
+Assistant discussions and questions.</p></li>
+<li><p>Follow us on <a class="reference external" href="https://twitter.com/home_assistant">Twitter</a>, use
+[&#64;home_assistant](<a class="reference external" href="https://twitter.com/home_assistant">https://twitter.com/home_assistant</a>)</p></li>
+<li><p>Join the <a class="reference external" href="https://www.facebook.com/homeassistantio">Facebook
+community</a></p></li>
+<li><p>Join the Reddit in
+<a class="reference external" href="https://reddit.com/r/homeassistant">/r/homeassistant</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="rh-workshops.html" class="btn btn-neutral float-right" title="Red Hat Workshops, but make it spicy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jig_demo.html" class="btn btn-neutral float-left" title="OpenShift Container Platform Workshop" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Toshin, Rodrique, Joey, Abner.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

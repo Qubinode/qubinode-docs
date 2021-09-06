@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OpenShift Container Platform Workshop &mdash; Qubinode 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Home Assistant" href="home-assistant_demo.html" />
+    <link rel="prev" title="OpenShift Workloads" href="openshift4_workloads.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qubinode
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<<<<<<< HEAD
+<li class="toctree-l1"><a class="reference internal" href="qubinode_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html#getting-started">Getting Started</a></li>
+=======
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_menu_option.html">Qubinode-installer Menu Options</a></li>
+>>>>>>> docs-config
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OpenShift Container Platform Workshop</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jig-workshop-service-worker">Jig - Workshop Service Worker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#qubinode-requirements">Qubinode Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qubinode-jig-installation-steps">Qubinode JIG installation steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-jig-project">Delete JIG project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant_demo.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<<<<<<< HEAD
+=======
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+>>>>>>> docs-config
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">Using Dev branch to test new code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription_pool_message.html">Common Issue: Subscription not available</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qubinode</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>OpenShift Container Platform Workshop</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/jig_demo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="openshift-container-platform-workshop">
+<h1>OpenShift Container Platform Workshop<a class="headerlink" href="#openshift-container-platform-workshop" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="jig-workshop-service-worker">
+<h2>Jig - Workshop Service Worker<a class="headerlink" href="#jig-workshop-service-worker" title="Permalink to this headline">¶</a></h2>
+<p>This is a PHP application built to provide advanced functionality to Red
+Hat workshops.
+<a class="reference external" href="https://github.com/kenmoini/jig">Click here to
+contribute</a></p>
+<div class="section" id="qubinode-requirements">
+<h3>Qubinode Requirements<a class="headerlink" href="#qubinode-requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Local storage with at 10Gigs os storage
+<code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">changed</span> <span class="pre">if</span> <span class="pre">you</span> <span class="pre">would</span> <span class="pre">like</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="qubinode-jig-installation-steps">
+<h3>Qubinode JIG installation steps<a class="headerlink" href="#qubinode-jig-installation-steps" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Install kustomize <a class="reference external" href="https://kubernetes-sigs.github.io/kustomize/installation/">kustomize</a></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -s <span class="s2">&quot;https://raw.githubusercontent.com/\</span>
+<span class="s2">kubernetes-sigs/kustomize/master/hack/install_kustomize.sh&quot;</span>  <span class="p">|</span> bash
+$ sudo mv kustomize /usr/local/bin/
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Clone the jig repo</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kenmoini</span><span class="o">/</span><span class="n">jig</span><span class="o">.</span><span class="n">git</span>\
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>cd into jig folder</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">jig</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Deploy to OpenShift using kustomize</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc new-project  jig-workshop-worker
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Deploy mysql database</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc process -f deploy/overlay/openshift/mysql-template.yaml  --param<span class="o">=</span><span class="nv">VOLUME_CAPACITY</span><span class="o">=</span>10Gi <span class="p">|</span> oc create -f -  -n jig-workshop-worker
+</pre></div>
+</div>
+<p>6. <strong>Optional</strong> update patch-env.yaml
+| <em>This will update the configmap for your deployment</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="n">deploy</span><span class="o">/</span><span class="n">overlay</span><span class="o">/</span><span class="n">openshift</span><span class="o">/</span><span class="n">patch</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Validate Configs</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kustomize build deploy/overlay/openshift/ <span class="p">|</span> less
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Deploy application</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kustomize build deploy/overlay/openshift/ <span class="p">|</span> oc create -f -
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Get admin password</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc <span class="nb">exec</span> <span class="k">$(</span>oc get pods -n jig-workshop-worker <span class="p">|</span> grep jig-workshop-worker- <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>  -- cat storage/app/generated_admin_password
+</pre></div>
+</div>
+<p><strong>Admin username</strong> * <code class="docutils literal notranslate"><span class="pre">admin&#64;admin.com</span></code></p>
+</div>
+<div class="section" id="delete-jig-project">
+<h3>Delete JIG project<a class="headerlink" href="#delete-jig-project" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>To delete deployment</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc process -f deploy/overlay/openshift/mysql-template.yaml  --param<span class="o">=</span><span class="nv">VOLUME_CAPACITY</span><span class="o">=</span>10Gi <span class="p">|</span> oc delete -f -  -n jig-workshop-worker
+kustomize build deploy/overlay/openshift/ <span class="p">|</span> oc delete -f -
+oc project delete  jig-workshop-worker
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="home-assistant_demo.html" class="btn btn-neutral float-right" title="Home Assistant" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openshift4_workloads.html" class="btn btn-neutral float-left" title="OpenShift Workloads" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Toshin, Rodrique, Joey, Abner.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

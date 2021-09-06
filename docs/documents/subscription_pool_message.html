@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>&lt;no title&gt; &mdash; The Q 2.4.5 documentation</title>
+  <title>Common Issue: Subscription not available &mdash; Qubinode 2.4.5 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -41,7 +44,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Troubleshooting an monitoring for Qubinode" href="troubleshooting-monitoring.html" />
-    <link rel="prev" title="Red Hat Workshops, but make it spicy" href="rh-workshops.html" /> 
+    <link rel="prev" title="Using Dev branch to test new code" href="qubinode_dev_branch.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -55,7 +58,7 @@
           
 
           
-            <a href="../index.html">
+            <a href="../index.html" class="icon icon-home"> Qubinode
           
 
           
@@ -64,6 +67,9 @@
           
           </a>
 
+          
+            
+            
           
 
           
@@ -86,33 +92,34 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs For Qubinode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_menu_option.html">Qubinode-installer Menu Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig_demo.html">OpenShift Container Platform Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant_demo.html">Home Assistant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">Using Dev branch to test new code</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Common Issue: Subscription not available</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
 </ul>
 
@@ -129,7 +136,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">The Q</a>
+          <a href="../index.html">Qubinode</a>
         
       </nav>
 
@@ -162,7 +169,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Common Issue: Subscription not available</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -181,7 +188,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>No available subscription pools were found matching the expression:</p>
+  <div class="section" id="common-issue-subscription-not-available">
+<h1>Common Issue: Subscription not available<a class="headerlink" href="#common-issue-subscription-not-available" title="Permalink to this headline">¶</a></h1>
+<p>No available subscription pools were found matching the expression:</p>
 <p>Red Hat OpenShift Container Platform</p>
 <p>Please make sure you have a subscription to Red Hat OpenShift Container
 Platform before trying the installation again.</p>
@@ -203,6 +212,7 @@ remove</p>
 ./qubinode-installer -m rhsm -p</p>
 <p>e.g. -installer -m rhsm -p ocp4</p>
 <p>Otherwise you may want to try deploying okd instead</p>
+</div>
 
 
            </div>
@@ -211,14 +221,14 @@ remove</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="troubleshooting-monitoring.html" class="btn btn-neutral float-right" title="Troubleshooting an monitoring for Qubinode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="rh-workshops.html" class="btn btn-neutral float-left" title="Red Hat Workshops, but make it spicy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qubinode_dev_branch.html" class="btn btn-neutral float-left" title="Using Dev branch to test new code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+        &#169; Copyright 2021, Toshin, Rodrique, Joey, Abner.
 
     </p>
   </div>

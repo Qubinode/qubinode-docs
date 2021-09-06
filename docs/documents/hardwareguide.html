@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Hardware Specs For Qubinode &mdash; The Q 2.4.5 documentation</title>
+  <title>Hardware Specs &mdash; Qubinode 2.4.5 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -40,8 +43,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Qubinode Overview" href="hardware_test.html" />
-    <link rel="prev" title="Qubinode Git branching strategy" href="CONTRIBUTING.html" /> 
+    <link rel="next" title="Qubinode Testing and Validation" href="hw_testing_validation.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -55,7 +58,7 @@
           
 
           
-            <a href="../index.html">
+            <a href="../index.html" class="icon icon-home"> Qubinode
           
 
           
@@ -64,6 +67,9 @@
           
           </a>
 
+          
+            
+            
           
 
           
@@ -86,14 +92,10 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Hardware Specs For Qubinode</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hardware Specs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#openshift-single-node-hardware-spec-table">OpenShift Single Node Hardware Spec Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recommended-hardware">Recommended Hardware</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#option-1-superserver-e200-8d-6-cores">Option 1: SuperServer E200-8D 6 Cores</a></li>
@@ -105,25 +107,30 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_menu_option.html">Qubinode-installer Menu Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig_demo.html">OpenShift Container Platform Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant_demo.html">Home Assistant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">Using Dev branch to test new code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription_pool_message.html">Common Issue: Subscription not available</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
 </ul>
 
@@ -140,7 +147,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">The Q</a>
+          <a href="../index.html">Qubinode</a>
         
       </nav>
 
@@ -173,7 +180,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Hardware Specs For Qubinode</li>
+      <li>Hardware Specs</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,11 +199,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="hardware-specs-for-qubinode">
-<h1>Hardware Specs For Qubinode<a class="headerlink" href="#hardware-specs-for-qubinode" title="Permalink to this headline">¶</a></h1>
-<p>The qubinode-installer supports deploying multiple Red Hat products,
-such as IdM and Satellite. The primary products that we focus on are
-OCP4, OCP3 and IdM.</p>
+  <div class="section" id="hardware-specs">
+<h1>Hardware Specs<a class="headerlink" href="#hardware-specs" title="Permalink to this headline">¶</a></h1>
+<p>The qubinode supports deploying multiple Red Hat products,
+such as IdM and Satellite. The primary products that we’re focusing on are
+OCP4, IdM, Satellite, and Ansible Tower.</p>
 <p>The table below defines what is needed for an OpenShift Deployment.</p>
 <div class="section" id="openshift-single-node-hardware-spec-table">
 <h2>OpenShift Single Node Hardware Spec Table<a class="headerlink" href="#openshift-single-node-hardware-spec-table" title="Permalink to this headline">¶</a></h2>
@@ -210,9 +217,9 @@ both OCP3 and OCP4.</p>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p><strong>Minimum</strong></p></th>
-<th class="head"><p><strong>Recommended</strong></p></th>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
 </tr>
 </thead>
 <tbody>
@@ -252,7 +259,7 @@ wired network, you would need to setup static routes. Bridging a
 wireless network is the easiest way to drop the qubinode into any
 network.</p>
 <div class="figure align-default" id="id1">
-<img alt="Example Router Usage" src="documents/img/QubinodeHardware.jpeg" />
+<img alt="Example Router Usage" src="documents/documents/img/QubinodeHardware.jpeg" />
 <p class="caption"><span class="caption-text">Example Router Usage</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="option-1-superserver-e200-8d-6-cores">
@@ -260,162 +267,81 @@ network.</p>
 <p>Before the AMD system below this was the cheapest option available.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
+<col style="width: 20%" />
+<col style="width: 32%" />
+<col style="width: 15%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p><strong>Co
-mponets</strong></p></th>
-<th class="head"><p><strong>Desc
-ription</strong></p></th>
-<th class="head"><p><strong>Unit
-Cost</strong></p></th>
-<th class="head"><p><strong>QTY</strong></p></th>
-<th class="head"><p><strong>Total</strong></p></th>
-<th class="head"><p><strong>Amazon
-URL</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Componets</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Estimated Unit Cost</strong></p></th>
+<th class="head"><p><strong>Quantity</strong></p></th>
+<th class="head"><p><strong>Cost(usd)</strong></p></th>
+<th class="head"><p><strong>Where it can be found</strong></p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>System</p></td>
-<td><p>Su
-perServer
-E200-8D 6
-Cores, 12
-Threads,
-1
-.9-2.2GHz</p></td>
+<td><p>superserver e200-8d
+* Cores: 6
+* Threads: 12
+* CPU: 1.9 Ghz</p></td>
 <td><p>$858.95</p></td>
 <td><p>1</p></td>
-<td><p>$858.95</p></td>
-<td><p>https
-://amzn.t
-o/2VZMIX4</p></td>
+<td><p>858.95</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2VZMIX4">https://amzn.to/2VZMIX4</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Memory</p></td>
-<td><p>Samsung
-M393A4K
-40BB1-CRC
-32GB
-DDR4-2400
-LP ECC
-Reg
-Server
-Memory</p></td>
+<td><p>samsung m393a4k40bb1-CRC LP ECC Reg Server Memory</p></td>
 <td><p>$101</p></td>
 <td><p>4</p></td>
 <td><p>$402</p></td>
-<td><p>https
-://amzn.t
-o/2MZuf8G</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2MZuf8G">https://amzn.to/2MZuf8G</a></p></td>
 </tr>
-<tr class="row-even"><td><p>SSD</p></td>
-<td><p>WD Blue
-3D NAND
-500GB
-Internal
-PC SSD -
-SATA III
-6 Gb/s,
-2.5”/7mm,
-Up to 560
-MB/s -
-WD
-S500G2B0A</p></td>
+<tr class="row-even"><td><p>Solid State Drive(SSD)</p></td>
+<td><p>WD Blue 3D NAND 500GB Internal PC SSD WD S500G2B0A
+* SATA III 6Gb/s
+* 2.5”/7mm
+* Up to 560 MP/s</p></td>
 <td><p>$63.99</p></td>
 <td><p>1</p></td>
 <td><p>$63.99</p></td>
-<td><p>https
-://amzn.t
-o/2P0JXDh</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2P0JXDh">https://amzn.to/2P0JXDh</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>NVME</p></td>
-<td><p>Intel
-Solid
-State
-Drive
-(SSD),
-660P
-Series, 1
-TB</p></td>
+<tr class="row-odd"><td><p>NonVolatile Memory Express(NVME)</p></td>
+<td><p>Intel SSD 660P Series, 1TB</p></td>
 <td><p>$99.99</p></td>
 <td><p>1</p></td>
 <td><p>$99.99</p></td>
-<td><p>https
-://amzn.t
-o/2MTnIMW</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2MTnIMW">https://amzn.to/2MTnIMW</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Router</p></td>
-<td><p>GL.iNet
-GL-A
-R750S-Ext
-Gigabit
-Travel AC
-Router
-(Slate),
-300Mbps
-(2.4G)+43
-3Mbps(5G)
-Wi-Fi,
-128MB
-RAM,
-MicroSD
-Support,
-Ope
-nWrt/LEDE
-pre-I
-nstalled,
-C
-loudflare
-DNS,
-Power
-Adapter
-and
-Cables
-Included</p></td>
+<td><p>GL.iNet GL-AR750S-Ext Gigabit Travel AC Router(slate)
+* Up to 300Mbps (2.4G)
+* Up to 433Mbps (5G)
+* Wi-Fi
+* RAM: 128MB
+* MicroSD support
+* OpenWRT/LEDE pre-installed
+* CloudFlare DNS</p></td>
 <td><p>$69.99</p></td>
 <td><p>1</p></td>
 <td><p>$69.99</p></td>
-<td><p>https
-://amzn.t
-o/33GUuYr</p></td>
+<td><p><a class="reference external" href="https://amzn.to/33GUuYr">https://amzn.to/33GUuYr</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Cable</p></td>
-<td><p>Insta
-llerParts
-Ethernet
-Cable
-CAT6
-Cable UTP
-Booted 1
-FT -
-Green -
-Pro
-fessional
-Series -
-10Gi
-gabit/Sec
-Net
-work/High
-Speed
-Internet
-Cable,
-550MHZ</p></td>
+<td><p>InstallerParts Ethernet Cable CAT6</p></td>
 <td><p>$5.79</p></td>
 <td><p>2</p></td>
-<td><p>$11.58</p></td>
-<td><p>https
-://amzn.t
-o/2VTXEoQ</p></td>
+<td><p>$11.78</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2VTXEoQ">https://amzn.to/2VTXEoQ</a></p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td></td>
-<td><p><strong>S
-ubtotal</strong></p></td>
+<td><p><strong>Total Cost</strong></p></td>
 <td></td>
 <td><p>$1,506.50</p></td>
 <td></td>
@@ -426,170 +352,83 @@ ubtotal</strong></p></td>
 <div class="section" id="option-2-superserver-e301-9d-8cn4-8-cores">
 <h3>Option 2: Superserver E301-9D-8CN4 8 Cores<a class="headerlink" href="#option-2-superserver-e301-9d-8cn4-8-cores" title="Permalink to this headline">¶</a></h3>
 <p>This system has not been tested, however, we included it here because of
-the price for a 8 core/16 thread system. This is a better buy vs option
-1.</p>
+the price for a 8 core/16 thread system. This is a better buy vs option</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
+<col style="width: 20%" />
+<col style="width: 32%" />
+<col style="width: 15%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p><strong>Co
-mponets</strong></p></th>
-<th class="head"><p><strong>Desc
-ription</strong></p></th>
-<th class="head"><p><strong>Unit
-Cost</strong></p></th>
-<th class="head"><p><strong>QTY</strong></p></th>
-<th class="head"><p><strong>Total</strong></p></th>
-<th class="head"><p><strong>Amazon
-URL</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Componets</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Estimated Unit Cost</strong></p></th>
+<th class="head"><p><strong>Quantity</strong></p></th>
+<th class="head"><p><strong>Cost(usd)</strong></p></th>
+<th class="head"><p><strong>Where it can be found</strong></p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>System</p></td>
-<td><p>S
-upermicro
-A+ Server
-E301
--9D-8CN4,
-8 Core/16
-Thread,
-RCC DDR4
-2666MHz
-SDRAM in
-4 DIMMs</p></td>
+<td><p>supermicro A+ Server E301-9D-8CN4
+* Cores: 8
+* Threads: 16</p></td>
 <td><p>$999.95</p></td>
 <td><p>1</p></td>
-<td><p>$999.95</p></td>
-<td><p>https
-://amzn.t
-o/31vYbhU</p></td>
+<td><p>999.95</p></td>
+<td><p><a class="reference external" href="https://amzn.to/31vYbhU">https://amzn.to/31vYbhU</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Memory</p></td>
-<td><p>Samsung
-M393A4K
-40BB1-CRC
-32GB
-DDR4-2400
-LP ECC
-Reg
-Server
-Memory</p></td>
+<td><p>samsung m393a4k40bb1-CRC 32GB</p></td>
 <td><p>$101</p></td>
 <td><p>4</p></td>
 <td><p>$402</p></td>
-<td><p>https
-://amzn.t
-o/2MZuf8G</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2MZuf8G">https://amzn.to/2MZuf8G</a></p></td>
 </tr>
-<tr class="row-even"><td><p>SSD</p></td>
-<td><p>WD Blue
-3D NAND
-500GB
-Internal
-PC SSD -
-SATA III
-6 Gb/s,
-2.5”/7mm,
-Up to 560
-MB/s -
-WD
-S500G2B0A</p></td>
+<tr class="row-even"><td><p>Solid State Drive(SSD)</p></td>
+<td><p>WD Blue 3D NAND 500GB Internal PC SSD WD S500G2B0A
+* SATA III 6Gb/s
+* 2.5”/7mm
+* Up to 560 MP/s</p></td>
 <td><p>$63.99</p></td>
 <td><p>1</p></td>
 <td><p>$63.99</p></td>
-<td><p>https
-://amzn.t
-o/2P0JXDh</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2P0JXDh">https://amzn.to/2P0JXDh</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>NVME</p></td>
-<td><p>Intel
-Solid
-State
-Drive
-(SSD),
-660P
-Series, 1
-TB</p></td>
+<tr class="row-odd"><td><p>NonVolatile Memory Express(NVME)</p></td>
+<td><p>Intel SSD 660P Series, 1TB</p></td>
 <td><p>$99.99</p></td>
 <td><p>1</p></td>
 <td><p>$99.99</p></td>
-<td><p>https
-://amzn.t
-o/2MTnIMW</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2MTnIMW">https://amzn.to/2MTnIMW</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Router</p></td>
-<td><p>GL.iNet
-GL-A
-R750S-Ext
-Gigabit
-Travel AC
-Router
-(Slate),
-300Mbps
-(2.4G)+43
-3Mbps(5G)
-Wi-Fi,
-128MB
-RAM,
-MicroSD
-Support,
-Ope
-nWrt/LEDE
-pre-I
-nstalled,
-C
-loudflare
-DNS,
-Power
-Adapter
-and
-Cables
-Included</p></td>
+<td><p>GL.iNet GL-AR750S-Ext Gigabit Travel AC Router(slate)
+* Up to 300Mbps (2.4G)
+* Up to 433Mbps (5G)
+* Wi-Fi
+* RAM: 128MB
+* MicroSD support
+* OpenWRT/LEDE pre-installed
+* CloudFlare DNS</p></td>
 <td><p>$69.99</p></td>
 <td><p>1</p></td>
 <td><p>$69.99</p></td>
-<td><p>https
-://amzn.t
-o/33GUuYr</p></td>
+<td><p><a class="reference external" href="https://amzn.to/33GUuYr">https://amzn.to/33GUuYr</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Cable</p></td>
-<td><p>Insta
-llerParts
-Ethernet
-Cable
-CAT6
-Cable UTP
-Booted 1
-FT -
-Green -
-Pro
-fessional
-Series -
-10Gi
-gabit/Sec
-Net
-work/High
-Speed
-Internet
-Cable,
-550MHZ</p></td>
+<td><p>InstallerParts Ethernet Cable CAT6</p></td>
 <td><p>$5.79</p></td>
 <td><p>2</p></td>
-<td><p>$11.58</p></td>
-<td><p>https
-://amzn.t
-o/2VTXEoQ</p></td>
+<td><p>$11.78</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2VTXEoQ">https://amzn.to/2VTXEoQ</a></p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td></td>
-<td><p><strong>S
-ubtotal</strong></p></td>
+<td><p><strong>Total Cost</strong></p></td>
 <td></td>
 <td><p>$1,647.50</p></td>
 <td></td>
@@ -599,187 +438,86 @@ ubtotal</strong></p></td>
 </div>
 <div class="section" id="option-3-superserver-e300-9d-8cn8tp-8-cores">
 <h3>Option 3: Superserver E300-9D-8CN8TP 8 Cores<a class="headerlink" href="#option-3-superserver-e300-9d-8cn8tp-8-cores" title="Permalink to this headline">¶</a></h3>
-<p>This is what we are using. Assuming Option 2 works well, it’s a more
+<p>The Qubinode developers and testers are using the following model. Assuming Option 2 works well, it’s a more
 cost effective than this. You can the same amount of cores and threads.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
+<col style="width: 20%" />
+<col style="width: 32%" />
+<col style="width: 15%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p><strong>Co
-mponets</strong></p></th>
-<th class="head"><p><strong>Desc
-ription</strong></p></th>
-<th class="head"><p><strong>Unit
-Cost</strong></p></th>
-<th class="head"><p><strong>QTY</strong></p></th>
-<th class="head"><p><strong>Total</strong></p></th>
-<th class="head"><p><strong>Amazon
-URL</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Componets</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Estimated Unit Cost</strong></p></th>
+<th class="head"><p><strong>Quantity</strong></p></th>
+<th class="head"><p><strong>Cost(usd)</strong></p></th>
+<th class="head"><p><strong>Where it can be found</strong></p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>System</p></td>
-<td><p>S
-upermicro
-Su
-perserver
-E300-
-9D-8CN8TP
-Intel
-Xeon
-D-2146NT
-N
-etworking
-PC w/ 2X
-SFP+, 2X
-10GbE
-LAN, 4X
-GbE LAN,
-IPMI,
-4xDIMMS,
-256GB
-RDIMM,
-512G
-LRDIMM, 8
-cores, 16
-threads,
-CPU TDP
-80w</p></td>
-<td><p>$1,653.25</p></td>
+<td><p>supermicro A+ Server E301-9D-8CN4
+* Cores: 8
+* Threads: 16</p></td>
+<td><p>$999.95</p></td>
 <td><p>1</p></td>
-<td><p>$1,653.25</p></td>
-<td><p>https
-://amzn.t
-o/2px72CS</p></td>
+<td><p>999.95</p></td>
+<td><p><a class="reference external" href="https://amzn.to/31vYbhU">https://amzn.to/31vYbhU</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Memory</p></td>
-<td><p>Samsung
-M393A4K
-40BB1-CRC
-32GB
-DDR4-2400
-LP ECC
-Reg
-Server
-Memory</p></td>
+<td><p>samsung m393a4k40bb1-CRC 32GB</p></td>
 <td><p>$101</p></td>
 <td><p>4</p></td>
 <td><p>$402</p></td>
-<td><p>https
-://amzn.t
-o/2MZuf8G</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2MZuf8G">https://amzn.to/2MZuf8G</a></p></td>
 </tr>
-<tr class="row-even"><td><p>SSD</p></td>
-<td><p>Samsung
-860 EVO
-500GB 2.5
-Inch SATA
-III
-Internal
-SSD
-(MZ-76
-E500B/AM)</p></td>
-<td><p>$74.99</p></td>
+<tr class="row-even"><td><p>Solid State Drive(SSD)</p></td>
+<td><p>WD Blue 3D NAND 500GB Internal PC SSD WD S500G2B0A
+* SATA III 6Gb/s
+* 2.5”/7mm
+* Up to 560 MP/s</p></td>
+<td><p>$63.99</p></td>
 <td><p>1</p></td>
-<td><p>$74.99</p></td>
-<td><p>https
-://amzn.t
-o/31vSLU6</p></td>
+<td><p>$63.99</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2P0JXDh">https://amzn.to/2P0JXDh</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>NVME</p></td>
-<td><p>Samsung
-970 PRO
-Series -
-1TB PCIe
-NVMe -
-M.2
-Internal
-SSD
-Black/Red
-(MZ-
-V7P1T0BW)</p></td>
-<td><p>$338.48</p></td>
+<tr class="row-odd"><td><p>NonVolatile Memory Express(NVME)</p></td>
+<td><p>Intel SSD 660P Series, 1TB</p></td>
+<td><p>$99.99</p></td>
 <td><p>1</p></td>
-<td><p>$338.48</p></td>
-<td><p>https
-://amzn.t
-o/31vk4OC</p></td>
+<td><p>$99.99</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2MTnIMW">https://amzn.to/2MTnIMW</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Router</p></td>
-<td><p>GL.iNet
-GL-A
-R750S-Ext
-Gigabit
-Travel AC
-Router
-(Slate),
-300Mbps
-(2.4G)+43
-3Mbps(5G)
-Wi-Fi,
-128MB
-RAM,
-MicroSD
-Support,
-Ope
-nWrt/LEDE
-pre-I
-nstalled,
-C
-loudflare
-DNS,
-Power
-Adapter
-and
-Cables
-Included</p></td>
+<td><p>GL.iNet GL-AR750S-Ext Gigabit Travel AC Router(slate)
+* Up to 300Mbps (2.4G)
+* Up to 433Mbps (5G)
+* Wi-Fi
+* RAM: 128MB
+* MicroSD support
+* OpenWRT/LEDE pre-installed
+* CloudFlare DNS</p></td>
 <td><p>$69.99</p></td>
 <td><p>1</p></td>
 <td><p>$69.99</p></td>
-<td><p>https
-://amzn.t
-o/33GUuYr</p></td>
+<td><p><a class="reference external" href="https://amzn.to/33GUuYr">https://amzn.to/33GUuYr</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Cable</p></td>
-<td><p>Insta
-llerParts
-Ethernet
-Cable
-CAT6
-Cable UTP
-Booted 1
-FT -
-Green -
-Pro
-fessional
-Series -
-10Gi
-gabit/Sec
-Net
-work/High
-Speed
-Internet
-Cable,
-550MHZ</p></td>
+<td><p>InstallerParts Ethernet Cable CAT6</p></td>
 <td><p>$5.79</p></td>
 <td><p>2</p></td>
-<td><p>$11.58</p></td>
-<td><p>https
-://amzn.t
-o/2VTXEoQ</p></td>
+<td><p>$11.78</p></td>
+<td><p><a class="reference external" href="https://amzn.to/2VTXEoQ">https://amzn.to/2VTXEoQ</a></p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td></td>
-<td><p><strong>S
-ubtotal</strong></p></td>
+<td><p><strong>Total Cost</strong></p></td>
 <td></td>
-<td><p>$2,550.29</p></td>
+<td><p>$1,647.50</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -1183,15 +921,15 @@ storage</a></p></li>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="hardware_test.html" class="btn btn-neutral float-right" title="Qubinode Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="CONTRIBUTING.html" class="btn btn-neutral float-left" title="Qubinode Git branching strategy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hw_testing_validation.html" class="btn btn-neutral float-right" title="Qubinode Testing and Validation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+        &#169; Copyright 2021, Toshin, Rodrique, Joey, Abner.
 
     </p>
   </div>

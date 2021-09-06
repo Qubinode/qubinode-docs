@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>OpenShift 4.x Standard Cluster Deployment &mdash; The Q 2.4.5 documentation</title>
+  <title>OpenShift 4.x Standard Cluster Deployment &mdash; Qubinode 2.4.5 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -40,8 +43,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installing an OpenShift 4.x Cluster on a Single Node" href="openshift4_installation_steps.html" />
-    <link rel="prev" title="OpenShift 4.x Custom Deployment" href="ocp4_custom_deploy.html" /> 
+    <link rel="next" title="OpenShift 4.x Custom Deployment" href="ocp4_custom_deploy.html" />
+    <link rel="prev" title="Installing an OpenShift 4.x Cluster on a Single Node" href="openshift4_installation_steps.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -55,7 +58,7 @@
           
 
           
-            <a href="../index.html">
+            <a href="../index.html" class="icon icon-home"> Qubinode
           
 
           
@@ -64,6 +67,9 @@
           
           </a>
 
+          
+            
+            
           
 
           
@@ -86,38 +92,39 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Qubinode Git branching strategy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs For Qubinode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware_test.html">Qubinode Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware_test.html#getting-started">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="home-assistant.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_menu_option.html">Qubinode-installer Menu Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jig.html">Jig - Workshop Service Worker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OpenShift 4.x Standard Cluster Deployment</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#for-recommened-deployment-standard-6-node-cluster-with-local-storage">For Recommened Deployment: Standard 6 node cluster with local storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deployment-post-steps">Deployment Post Steps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting-guide">Troubleshooting Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_bootable_usb.html">This guide will explain how to create a bootable usb.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">How to use the Qubinode dev branch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rhel_vms.html">Deploying Red Hat Enterprise Linux VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig_demo.html">OpenShift Container Platform Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant_demo.html">Home Assistant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">Using Dev branch to test new code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription_pool_message.html">Common Issue: Subscription not available</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
 </ul>
 
@@ -134,7 +141,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">The Q</a>
+          <a href="../index.html">Qubinode</a>
         
       </nav>
 
@@ -193,7 +200,7 @@ Node</a> before continuing here.</p>
 <p>Run the below command to kick off the deployment of 6 node OCP4 cluster.
 This will consist of 3 controlplane 3 computes and NFS for persistent
 storage. Each node will be deployed with 16 Gib memory and 4 vCPUs.</p>
-<div class="highlight-shell= notranslate"><div class="highlight"><pre><span></span>cd $HOME/qubinode-installer
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/qubinode-installer
 ./qubinode-installer
 </pre></div>
 </div>
@@ -247,15 +254,15 @@ avialable</strong><a class="reference external" href="ocp4_cluster_ops.md">here<
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="openshift4_installation_steps.html" class="btn btn-neutral float-right" title="Installing an OpenShift 4.x Cluster on a Single Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="ocp4_custom_deploy.html" class="btn btn-neutral float-left" title="OpenShift 4.x Custom Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ocp4_custom_deploy.html" class="btn btn-neutral float-right" title="OpenShift 4.x Custom Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openshift4_installation_steps.html" class="btn btn-neutral float-left" title="Installing an OpenShift 4.x Cluster on a Single Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright Oluwatosin Akinosho, Rodrique Heron,Joey Amanchukwu, Abnerson Malivert.
+        &#169; Copyright 2021, Toshin, Rodrique, Joey, Abner.
 
     </p>
   </div>

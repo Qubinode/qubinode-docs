@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Qubinode-installer Menu Options &mdash; Qubinode 2.4.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How does DNS work in qubinode?" href="idm.html" />
+    <link rel="prev" title="Qubinode-installer" href="qubinode_installer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qubinode
+          
+
+          
+            
+            <img src="../_static/QubinodeFinal.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardwareguide.html">Hardware Specs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_testing_validation.html">Qubinode Testing and Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Qubinode Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide.html">Qubinode Git branching strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginners.html">Qubinode for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html">Qubinode-installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_installer.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Qubinode-installer Menu Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage-qubinode-installer-options">Basic usage: qubinode-installer [options]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html">How does DNS work in qubinode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idm.html#access-the-idm-server">Access the IdM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_installation_steps.html">Installing an OpenShift 4.x Cluster on a Single Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_standard_deploy.html">OpenShift 4.x Standard Cluster Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_custom_deploy.html">OpenShift 4.x Custom Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift_ldap_config.html">LDAP OpenShift configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocp4_cluster_ops.html">Qubinode Openshift Cluster Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift4_workloads.html">OpenShift Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jig_demo.html">OpenShift Container Platform Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home-assistant_demo.html">Home Assistant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rh-workshops.html">Red Hat Workshops, but make it spicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansible_platform.html">Red Hat Ansible Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_satellite_install.html">Satellite 6 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qubinode_dev_branch.html">Using Dev branch to test new code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription_pool_message.html">Common Issue: Subscription not available</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting-monitoring.html">Troubleshooting an monitoring for Qubinode</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qubinode</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Qubinode-installer Menu Options</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/documents/qubinode_menu_option.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qubinode-installer-menu-options">
+<h1>Qubinode-installer Menu Options<a class="headerlink" href="#qubinode-installer-menu-options" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-usage-qubinode-installer-options">
+<h2>Basic usage: qubinode-installer [options]<a class="headerlink" href="#basic-usage-qubinode-installer-options" title="Permalink to this headline">¶</a></h2>
+<p>Options: -p Deploys the specified product -h Display this help menu -m
+Runs operational tasks or modify a product -d Delete a product -v
+Verbose output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Supported</span> <span class="n">Products</span>
+<span class="o">------------------</span>
+    <span class="o">*</span> <span class="n">OpenShift</span>   <span class="n">Supports</span> <span class="n">the</span> <span class="o">-</span><span class="n">m</span> <span class="ow">and</span> <span class="o">-</span><span class="n">d</span> <span class="n">argument</span>
+          <span class="n">okd4</span>    <span class="o">-</span> <span class="n">deploy</span> <span class="n">upstream</span> <span class="n">OpenShift</span>
+          <span class="n">ocp4</span>    <span class="o">-</span> <span class="n">deploy</span> <span class="n">Red</span> <span class="n">Hat</span> <span class="n">OpenShift</span> <span class="n">Platform</span>
+
+          <span class="o">-</span><span class="n">m</span> <span class="n">arguments</span> <span class="n">are</span><span class="p">:</span>
+               <span class="n">startup</span>        <span class="o">-</span> <span class="n">start</span> <span class="n">up</span> <span class="n">OpenShift</span> <span class="n">cluster</span> <span class="n">after</span> <span class="n">shutdown</span>
+               <span class="n">shutdown</span>       <span class="o">-</span> <span class="n">safely</span> <span class="n">shutdown</span> <span class="n">OpenShift</span> <span class="n">cluster</span>
+               <span class="n">remove</span><span class="o">-</span><span class="n">compute</span>  <span class="o">-</span> <span class="n">remove</span> <span class="n">compute</span> <span class="n">node</span>
+               <span class="n">add</span><span class="o">-</span><span class="n">compute</span>     <span class="o">-</span> <span class="n">add</span> <span class="n">compute</span> <span class="n">node</span>
+
+    <span class="o">*</span> <span class="n">IdM</span>         <span class="n">Supports</span> <span class="n">the</span> <span class="o">-</span><span class="n">m</span> <span class="ow">and</span> <span class="o">-</span><span class="n">d</span> <span class="n">argument</span>
+          <span class="n">idm</span>     <span class="o">-</span> <span class="n">deploy</span> <span class="n">IDM</span> <span class="k">as</span> <span class="n">a</span> <span class="n">DNS</span> <span class="n">Server</span>
+
+          <span class="o">-</span><span class="n">m</span> <span class="n">arguments</span> <span class="n">are</span><span class="p">:</span>
+               <span class="n">stop</span>   <span class="o">-</span> <span class="n">shutdown</span> <span class="n">the</span> <span class="n">idm</span> <span class="n">vm</span>
+               <span class="n">start</span>  <span class="o">-</span> <span class="n">starts</span> <span class="n">the</span> <span class="n">idm</span> <span class="n">vm</span>
+               <span class="n">status</span> <span class="o">-</span> <span class="n">show</span> <span class="n">the</span> <span class="n">status</span> <span class="n">of</span> <span class="n">the</span> <span class="n">idm</span> <span class="n">server</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">login</span> <span class="n">info</span>
+
+    <span class="o">*</span> <span class="n">Ansible</span> <span class="n">Tower</span>   <span class="n">Supports</span> <span class="n">the</span> <span class="o">-</span><span class="n">m</span> <span class="ow">and</span> <span class="o">-</span><span class="n">d</span> <span class="n">argument</span>
+              <span class="n">tower</span>   <span class="o">-</span> <span class="n">deploy</span> <span class="n">IDM</span> <span class="k">as</span> <span class="n">a</span> <span class="n">DNS</span> <span class="n">Server</span>
+
+
+<span class="n">Standalone</span> <span class="o">-</span><span class="n">m</span> <span class="n">options</span>
+<span class="o">---------------------</span>
+    <span class="n">clean</span>            <span class="o">-</span> <span class="n">remove</span> <span class="nb">all</span> <span class="n">files</span> <span class="n">created</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">project</span> <span class="n">folder</span>
+    <span class="n">setup</span>            <span class="o">-</span> <span class="n">setup</span> <span class="n">playbooks</span> <span class="nb">vars</span> <span class="ow">and</span> <span class="n">user</span> <span class="n">sudoers</span>
+    <span class="n">rhsm</span>             <span class="o">-</span> <span class="n">register</span> <span class="n">host</span> <span class="n">system</span> <span class="n">to</span> <span class="n">Red</span> <span class="n">Hat</span>
+    <span class="n">ansible</span>          <span class="o">-</span> <span class="n">setup</span> <span class="n">host</span> <span class="n">system</span> <span class="k">as</span> <span class="n">an</span> <span class="n">ansible</span> <span class="n">controller</span>
+    <span class="n">host</span>             <span class="o">-</span> <span class="n">setup</span> <span class="n">the</span> <span class="n">host</span> <span class="n">system</span> <span class="k">as</span> <span class="n">an</span> <span class="n">KVM</span> <span class="n">host</span>
+    <span class="n">rebuild_qubinode</span> <span class="o">-</span> <span class="n">prep</span> <span class="n">the</span> <span class="n">qubinode</span> <span class="n">system</span> <span class="k">for</span> <span class="n">a</span> <span class="n">reinstall</span> <span class="n">of</span> <span class="n">the</span> <span class="n">OS</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>DNS * Deploy DNS server: qubinode-installer -p idm * Delete the DNS
+server: qubinode-installer -p idm -d</p>
+<p>OpenShift * Deploy OCP4 cluster: qubinode-installer -p ocp4 * Delete
+the cluster: qubinode-installer -p ocp4 -d * Shutdown the cluster:
+qubinode-installer -p ocp4 -m shutdown * Startup the cluster:
+qubinode-installer -p ocp4 -m startup</p>
+<p>Standalone * Deploy just the OpenShift nodes: qubinode-installer -m
+deploy_nodes * Delete the OpenShift nodes: qubinode-installer -m
+deploy_nodes -d * Setup the system as a KVM host: qubinode-installer -m
+host * Clean up all configuration and playbook variables files created:
+qubinode-installer -m clean</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="idm.html" class="btn btn-neutral float-right" title="How does DNS work in qubinode?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="qubinode_installer.html" class="btn btn-neutral float-left" title="Qubinode-installer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Toshin, Rodrique, Joey, Abner.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
