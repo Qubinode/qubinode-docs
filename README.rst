@@ -31,16 +31,14 @@ Building Qubionde web page
 --------------------------
 .. highlight:: python
 
-1. Under the docsource directory:
-::
+1. Under the docsource directory
+.. :: 
    make github
 
-2. Test the build by running:
-::
+2. Test the build by running
+.. :: 
    open ../docs/index.html   
    
 3. To convert .md files to .rst:
-::
+.. ::
    pandoc example.md --from markdown --to rst -s -o example.rst
-
-   
