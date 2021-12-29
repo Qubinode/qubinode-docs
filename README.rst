@@ -2,7 +2,7 @@
 The Qubinode Project
 ********************
 
-The Qubinode documentation page uses sphinx_rtd_theme to create a web browser for the `Qubinode <http://qubinode.io>`__  project.
+The Qubinode documentation page uses sphinx_rtd_theme to create a web browser for the http://qubinode.io  project.
 
 Building the Qubinode documentation page
 =========================================
@@ -10,15 +10,9 @@ Building the Qubinode documentation page
 Required applications to build and configure qubinode documentation
 --------------------------------------------------------------------
 
-+------------------+-------------------------------------------+
-| applications     | web links                                 |
-+==================+===========================================+
-| pandoc           | `https://pandoc.org`                      |
-+------------------+-------------------------------------------+
-| sphinx_rtd_theme | `https://sphinx-rtd-theme.readthedocs.io` |
-+------------------+-------------------------------------------+
-| reference        | `https://purduecam2project.github.io/CAM2WebUI/basicSetup/sphinx.html` |
-+------------------+-------------------------------------------+
+1. https://pandoc.org
+2. https://sphinx-rtd-theme.readthedocs.io
+3. https://purduecam2project.github.io/CAM2WebUI/basicSetup/sphinx.html
 
 Notable files and directories
 ------------------------------
