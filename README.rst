@@ -9,10 +9,9 @@ Building the Qubinode documentation page
 
 Required applications to build and configure qubinode documentation
 --------------------------------------------------------------------
-
-1. https://pandoc.org
-2. https://sphinx-rtd-theme.readthedocs.io
-3. https://purduecam2project.github.io/CAM2WebUI/basicSetup/sphinx.html
+* https://pandoc.org
+* https://sphinx-rtd-theme.readthedocs.io
+* https://purduecam2project.github.io/CAM2WebUI/basicSetup/sphinx.html
 
 Notable files and directories
 ------------------------------
