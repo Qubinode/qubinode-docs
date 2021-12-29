@@ -7,6 +7,8 @@ The Qubinode documentation page uses sphinx_rtd_theme to create a web browser fo
 Building the Qubinode documentation page
 =========================================
 
+To build the Qubinode documentation page use the following information
+
 Required applications to build and configure qubinode documentation
 --------------------------------------------------------------------
 * https://pandoc.org
